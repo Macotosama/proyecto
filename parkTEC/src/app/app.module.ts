@@ -14,12 +14,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { InicioComponent } from './interfaz/inicio/inicio.component';
+import { MenuPrincipalComponent } from './interfaz/funcionario/menu-principal/menu-principal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DtoUsuarioComponent,
-    InicioComponent
+    InicioComponent,
+    MenuPrincipalComponent
   ],
   imports: [
     BrowserModule,
