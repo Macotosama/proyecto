@@ -12,16 +12,19 @@ import { CookieService } from 'ngx-cookie-service';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
 
 import { InicioComponent } from './interfaz/inicio/inicio.component';
 import { MenuPrincipalComponent } from './interfaz/funcionario/menu-principal/menu-principal.component';
+import { CrearReservacionComponent } from './interfaz/funcionario/crear-reservacion/crear-reservacion.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DtoUsuarioComponent,
     InicioComponent,
-    MenuPrincipalComponent
+    MenuPrincipalComponent,
+    CrearReservacionComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,8 @@ import { MenuPrincipalComponent } from './interfaz/funcionario/menu-principal/me
     MatInputModule,
     FormsModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

@@ -9,8 +9,20 @@
     </button>
     </div>
 </header>
-<div class="overContainer">
-    <button class="button" [routerLink]="['/crearReser']">Crear reservación</button>
-    <button class="button" [routerLink]="['/adDocentes']">Reservaciones</button>
-    <button class="button" [routerLink]="['/adEstudiantes']">Editar información</button>
+<div class="overcontainer">
+    <div class="derecha">
+        <form>
+            <mat-form-field appearance="outline">
+              <mat-label>Ubicaiones</mat-label>
+              <mat-select [(ngModel)]="ubicacion" name="food">
+                <mat-option *ngFor="let ubi of ubicaciones" [value]="ubi.value">
+                  {{ubi.view}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+        </form>
+    </div>
+    <div class="izquierda">
+
+    </div>
 </div>
