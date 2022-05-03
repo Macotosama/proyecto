@@ -21,6 +21,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { InicioComponent } from './interfaz/inicio/inicio.component';
 import { MenuPrincipalComponent } from './interfaz/funcionario/menu-principal/menu-principal.component';
 import { CrearReservacionComponent } from './interfaz/funcionario/crear-reservacion/crear-reservacion.component';
+import { ReservacionesComponent } from './interfaz/funcionario/reservaciones/reservaciones.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CrearReservacionComponent } from './interfaz/funcionario/crear-reservac
     DtoUsuarioComponent,
     InicioComponent,
     MenuPrincipalComponent,
-    CrearReservacionComponent
+    CrearReservacionComponent,
+    ReservacionesComponent
   ],
   imports: [
     BrowserModule,

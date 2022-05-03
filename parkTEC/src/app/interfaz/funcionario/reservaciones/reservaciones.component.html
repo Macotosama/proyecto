@@ -9,8 +9,23 @@
     </button>
     </div>
 </header>
-<div class="overContainer">
-    <button class="button" [routerLink]="['/crearReser']">Crear reservación</button>
-    <button class="button" [routerLink]="['/reservaciones']">Reservaciones</button>
-    <button class="button" [routerLink]="['/adEstudiantes']">Editar información</button>
+<div class="tituloContainer">
+  <h1 class="titulo">Reservaciones</h1>
+</div>
+<div class="overcontainer">
+    <div class="itemReservacion" *ngFor="let reservacion of resercaiones">
+        <div class="tituloItem">
+            <h2 class="locacion">{{reservacion.localidad}}</h2>
+        </div>
+        <div class="fecha">
+            <p>Fecha: {{reservacion.fecha}}</p>
+            <p>Tipo de estacionamiento: {{reservacion.tipo}}</p>
+        </div>
+        <div class="placa fecha">
+            <p>Placa: {{reservacion.placa}}</p>
+        </div>
+        <div class="boton">
+            <button mat-flat-button class="eliminar-recervacion">Cancelar</button>
+        </div>
+    </div>
 </div>
