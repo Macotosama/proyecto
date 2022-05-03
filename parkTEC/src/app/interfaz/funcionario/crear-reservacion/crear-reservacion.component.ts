@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-crear-reservacion',
@@ -15,8 +16,10 @@ export class CrearReservacionComponent implements OnInit {
   placas= [{placa: '1231l23k'}, {placa: '4dfsdf4'}];
   placa = '';
   arrendar = false;
+  fechaActual = new Date();
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

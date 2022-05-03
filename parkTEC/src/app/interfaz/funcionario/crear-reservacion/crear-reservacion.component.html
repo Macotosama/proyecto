@@ -44,6 +44,25 @@
         </div>
     </div>
     <div class="izquierda">
-
+      <mat-form-field appearance="outline" class="fechaReservacion">
+        <mat-label>Fecha</mat-label>
+        <input matInput [matDatepicker]="dp3" disabled [(ngModel)]="fechaActual">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+        <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+      </mat-form-field>
+      <form class="input inicio">
+        <mat-form-field class="input-inicio-field" appearance="outline">
+          <mat-label>Inicio</mat-label>
+          <input type="time" matInput placeholder="00:00">
+        </mat-form-field>
+      </form>
+      <form class="input final">
+        <mat-form-field class="input-inicio-field" appearance="outline">
+          <mat-label>Final</mat-label>
+          <input type="time" matInput placeholder="00:00">
+        </mat-form-field>
+      </form>
+      <button mat-flat-button class="aceptar-recervacion">Reservar</button>
     </div>
 </div>
