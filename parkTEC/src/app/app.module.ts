@@ -13,6 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { InicioComponent } from './interfaz/inicio/inicio.component';
 import { MenuPrincipalComponent } from './interfaz/funcionario/menu-principal/menu-principal.component';
@@ -36,7 +38,9 @@ import { CrearReservacionComponent } from './interfaz/funcionario/crear-reservac
     FormsModule,
     MatIconModule,
     ReactiveFormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatRadioModule,
+    MatCheckboxModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

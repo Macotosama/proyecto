@@ -14,13 +14,34 @@
         <form>
             <mat-form-field appearance="outline">
               <mat-label>Ubicaiones</mat-label>
-              <mat-select [(ngModel)]="ubicacion" name="food">
+              <mat-select [(ngModel)]="ubicacion" name="ubi">
                 <mat-option *ngFor="let ubi of ubicaciones" [value]="ubi.value">
                   {{ubi.view}}
                 </mat-option>
               </mat-select>
             </mat-form-field>
         </form>
+        <div class="aparcamientos">
+          <mat-radio-group class="gurpoRadius"
+            [(ngModel)]="aparcamiento">
+            <mat-radio-button class="radioButton" *ngFor="let aparca of aparcamientos" class="item" [value]="aparca">
+              {{aparca.name}}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div class="cajaBot">
+          <form>
+            <mat-form-field appearance="outline">
+              <mat-label>Vehiculos</mat-label>
+              <mat-select [(ngModel)]="placa" name="ubi">
+                <mat-option *ngFor="let placa of placas" [value]="placa.placa">
+                  {{placa.placa}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </form>
+          <mat-checkbox class="check-arrendar" [(ngModel)]="arrendar">Arrendar</mat-checkbox>
+        </div>
     </div>
     <div class="izquierda">
 
