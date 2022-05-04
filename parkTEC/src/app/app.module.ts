@@ -17,11 +17,13 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { InicioComponent } from './interfaz/inicio/inicio.component';
 import { MenuPrincipalComponent } from './interfaz/funcionario/menu-principal/menu-principal.component';
 import { CrearReservacionComponent } from './interfaz/funcionario/crear-reservacion/crear-reservacion.component';
 import { ReservacionesComponent } from './interfaz/funcionario/reservaciones/reservaciones.component';
+import { InfoUsuarioComponent } from './interfaz/funcionario/info-usuario/info-usuario.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { ReservacionesComponent } from './interfaz/funcionario/reservaciones/res
     InicioComponent,
     MenuPrincipalComponent,
     CrearReservacionComponent,
-    ReservacionesComponent
+    ReservacionesComponent,
+    InfoUsuarioComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import { ReservacionesComponent } from './interfaz/funcionario/reservaciones/res
     MatRadioModule,
     MatCheckboxModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatDialogModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

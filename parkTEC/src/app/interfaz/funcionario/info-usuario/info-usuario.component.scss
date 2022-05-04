@@ -57,58 +57,23 @@ img {
 }
 
 .overcontainer {
-    height: 80%;
+    height: 60%;
     width: 80%;
     margin: auto;
 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     padding-top: 5%;
-    // justify-content: center;
-
-    overflow: auto;
+    background-color: #dad9d9;
+    border-radius: 10px;
 }
 
-.itemReservacion {
-    height: 25%;
-    width: 90%;
-
-    background-color: #F3F3F3;
-    margin-bottom: 5px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.tituloItem {
-    margin-left: 5px;
+.lados {
+    width: 80%;
+    height: 80%;
+    margin: auto;
 }
 
 p {
     font-size: 20px;
-}
-
-.fecha {
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.boton {
-    width: 90%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.eliminar-recervacion {
-    font-size: 20px;
-    color: white;
-    background-color: #5F59B2;
-    margin-left: 20px;
-    padding: 5px;
 }
