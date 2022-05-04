@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./parqueos.component.scss']
 })
 export class ParqueosComponent implements OnInit {
+  parqueos = [{localidad: 'San Pedro', espacios: '9', automovil: '3', motocicleta: '3', discapacitado: '3'},
+  {localidad: 'San Pedro', espacios: '9', automovil: '3', motocicleta: '3', discapacitado: '3'},
+  {localidad: 'San Pedro', espacios: '9', automovil: '3', motocicleta: '3', discapacitado: '3'},
+  {localidad: 'San Pedro', espacios: '9', automovil: '3', motocicleta: '3', discapacitado: '3'}]
 
   constructor() { }
 

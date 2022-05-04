@@ -1,0 +1,122 @@
+* {
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    max-width: 1400px;
+    margin: auto;
+}
+
+header{
+    background-color: #03045e
+} 
+
+header .contaiter{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+}
+
+.salida {
+    position: absolute;
+    background-color: #03045e;
+    color: white;
+    cursor: pointer;
+    right: 1%;
+    border: none;
+}
+
+.salida:hover {
+    background-color: #1d1e5c;
+}
+
+img { 
+    height: 90px;
+}
+
+.tituloContainer {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.overcontainer {
+    height: 80%;
+    width: 80%;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    padding-top: 5%;
+    // justify-content: center;
+
+    overflow: auto;
+}
+
+.itemReservacion {
+    height: 25%;
+    width: 90%;
+
+    background-color: #F3F3F3;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tituloItem {
+    margin-left: 5px;
+}
+
+p {
+    font-size: 20px;
+}
+
+.fecha {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.boton {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.eliminar-recervacion {
+    font-size: 20px;
+    color: white;
+    background-color: #5F59B2;
+    margin-left: 20px;
+    padding: 5px;
+}
+
+.editarParqueo {
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #5F59B2;
+    color: white;
+}
