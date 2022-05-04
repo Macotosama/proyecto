@@ -25,6 +25,7 @@ import { CrearReservacionComponent } from './interfaz/funcionario/crear-reservac
 import { ReservacionesComponent } from './interfaz/funcionario/reservaciones/reservaciones.component';
 import { InfoUsuarioComponent } from './interfaz/funcionario/info-usuario/info-usuario.component';
 import { MenuAdminComponent } from './interfaz/administrador/menu-admin/menu-admin.component';
+import { ParqueosComponent } from './interfaz/administrador/parqueos/parqueos.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { MenuAdminComponent } from './interfaz/administrador/menu-admin/menu-adm
     CrearReservacionComponent,
     ReservacionesComponent,
     InfoUsuarioComponent,
-    MenuAdminComponent
+    MenuAdminComponent,
+    ParqueosComponent
   ],
   imports: [
     BrowserModule,
