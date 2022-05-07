@@ -7,6 +7,7 @@ import { ReservacionesComponent } from './interfaz/funcionario/reservaciones/res
 import { InfoUsuarioComponent } from './interfaz/funcionario/info-usuario/info-usuario.component';
 import { MenuAdminComponent } from './interfaz/administrador/menu-admin/menu-admin.component';
 import { ParqueosComponent } from './interfaz/administrador/parqueos/parqueos.component';
+import { EditarUsuarioComponent } from './interfaz/administrador/editar-usuario/editar-usuario.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'infousuario', component: InfoUsuarioComponent },
   { path: 'menuAdmin', component: MenuAdminComponent },
   { path: 'parqueos', component: ParqueosComponent },
+  { path: 'editUsuario', component: EditarUsuarioComponent },
 ];
 
 @NgModule({

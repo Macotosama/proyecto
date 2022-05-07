@@ -13,6 +13,17 @@
   <h1 class="titulo">Parqueos</h1>
 </div>
 <div class="overcontainer">
+    <div class="busqueda">
+        <form class="inputBusqueda">
+            <mat-form-field class="forfielinput" appearance="outline">
+              <mat-label>Localidad</mat-label>
+              <input matInput placeholder="Ex. Campus">
+              <button class="buscarParqueo" matSuffix mat-icon-button>
+                <mat-icon>search</mat-icon>
+               </button>
+            </mat-form-field>
+        </form>
+    </div>
     <div class="itemReservacion" *ngFor="let parqueo of parqueos">
         <div class="tituloItem">
             <h2 class="locacion">{{parqueo.localidad}}</h2>
