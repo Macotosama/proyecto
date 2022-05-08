@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DtoUsuarioComponent } from './controler/DTO/dto-usuario/dto-usuario.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -18,6 +17,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
+import { HttpClientModule } from '@angular/common/http';
 
 import { InicioComponent } from './interfaz/inicio/inicio.component';
 import { MenuPrincipalComponent } from './interfaz/funcionario/menu-principal/menu-principal.component';
@@ -31,7 +31,6 @@ import { EditarUsuarioComponent } from './interfaz/administrador/editar-usuario/
 @NgModule({
   declarations: [
     AppComponent,
-    DtoUsuarioComponent,
     InicioComponent,
     MenuPrincipalComponent,
     CrearReservacionComponent,
@@ -56,7 +55,8 @@ import { EditarUsuarioComponent } from './interfaz/administrador/editar-usuario/
     MatCheckboxModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatDialogModule
+    MatDialogModule,
+    HttpClientModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]
