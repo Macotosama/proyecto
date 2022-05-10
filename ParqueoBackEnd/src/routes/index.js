@@ -37,8 +37,9 @@ router.get('/edit-contact/:id', async (req, res) => {
 
 router.get('/delete-contact/:id', async (req, res) => {
     const doc = await db.collection('contacts').doc(req.params.id).delete();
-
-    res.send('contact deleted');
+    console.log('entro a eliminar')
+    res.status(204).json();
+    // res.send('contact deleted');
 })
 
 router.post('update-contact/:id', async (req, res) => {
