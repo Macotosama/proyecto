@@ -13,12 +13,12 @@ const httpOption = {
   })
 
   export class dtoUsuario {
-    port = 'http://localhost:4000/api/';
-    login = 'delete-contact/';
+    port = 'http://localhost:4000/';
+    login = 'admin/delete-contact/';
 
     constructor(private _http: HttpClient) {}
 
-    loguin():Observable<any> {
-      return this._http.get(`${this.port}${this.login}${'rSpOKMSwFdCsqp07O7ig'}`, httpOption);
+    loguin(userAdmin: string, contrasenaAdmin: string):Observable<any> {
+      return this._http.get(`${this.port}${this.login}${'123456'}`, httpOption);
     }
   }

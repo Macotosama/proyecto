@@ -7,16 +7,27 @@ import  { dtoUsuario }  from '../../controler/DTO/dtoUsuario';
   styleUrls: ['./inicio.component.scss']
 })
 export class InicioComponent implements OnInit {
-  contrasena = '';
   hide = true;
+
+  contrasenaAdmin = '';
+  userAdmin = '';
+
+  contrasenaFuncio = '';
+  userFuncio = '';
 
   constructor(private router:dtoUsuario) { }
 
   ngOnInit(): void {
   }
 
-  loguin () {
-    this.router.loguin().subscribe(res =>{
+  loguinFuncio () {
+    // this.router.loguin().subscribe(res =>{
+    //   console.log(res)
+    // })
+  }
+
+  loguinAdmin () {
+    this.router.loguin(this.userFuncio, this.contrasenaAdmin).subscribe(res =>{
       console.log(res)
     })
   }
