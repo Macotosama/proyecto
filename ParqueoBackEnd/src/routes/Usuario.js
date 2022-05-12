@@ -3,11 +3,81 @@ const {db} = require('../firebase');
 
 const router = Router();
 
-//Buscar usuario por nombre completo - Premiun
+//Eliminar un usuario - Premiun
+router.delete("/delet-usuario/:id", async(req, res)=>{
+    console.log(req.params.id)
+    try {
+        
+        const document = db.collection("usuario").doc(req.params.id);
+        await document.delete();
+        return res.status(200).json({estatus: true});
+    } catch (error) {
+        return res.status(500).json(error);
+    }
+});
+
+//Editar un usuario - Premiun
+router.put('/edit-usuario', async (req, res) => {
+    try {
+        console.log(req.body)
+        const {apellido1, apellido2, email, cedula, contrasena, discapacidad,
+            departamento, jefe, nombre, puesto_laboral, tipo_usuario, correo_institucional} = req.body
+        const doc = await db.collection('usuario').doc(req.body.id).update({
+            apellido1,
+            apellido2,
+            cedula,
+            contrasena,
+            discapacidad,
+            email,
+            departamento,
+            jefe,
+            nombre,
+            puesto_laboral,
+            tipo_usuario,
+            correo_institucional,
+        });
+        return res.status(200).json({status: true});
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send(error)
+    }
+
+});
+
+//Crear un nuevo usuario - Premiun
+router.post('/new-usuario', async (req, res) => {
+    try {
+        console.log(req.body)
+        const {apellido1, apellido2, email, cedula, contrasena, discapacidad,
+            departamento, jefe, nombre, puesto_laboral, tipo_usuario, correo_institucional} = req.body
+    
+        await db.collection('usuario').add({
+            apellido1,
+            apellido2,
+            cedula,
+            contrasena,
+            discapacidad,
+            email,
+            departamento,
+            jefe,
+            nombre,
+            puesto_laboral,
+            tipo_usuario,
+            correo_institucional,
+        })
+        return res.status(200).json({status: true});
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send(error)
+    }
+
+});
+
+//Buscar usuario por nombre sin carros - Premiun
 router.get('/buscar-usuario/:nombre/:apellido1/:apellido2', async (req, res) => {
     try{
         const adminS = db.collection("usuario");
-        const query = adminS.where("nombre", "==", ""+req.params.nombre).where("apellido1",  "==", ""+req.params.apellido1).where("apellido2",  "==", ""+req.params.apellido2).where("tipo_usuario", "==", true);
+        const query = adminS.where("nombre", "==", ""+req.params.nombre).where("apellido1",  "==", ""+req.params.apellido1).where("apellido2",  "==", ""+req.params.apellido2);
         
         const querySnapShot = await query.get();
         const docs = querySnapShot.docs;
@@ -19,9 +89,9 @@ router.get('/buscar-usuario/:nombre/:apellido1/:apellido2', async (req, res) => 
         console.log(response)
 
         if (response.length != 0) {
-            return res.status(200).json({estatus: true});
+            return res.status(200).json(response);
         } else {
-            return res.status(200).json({estatus: false});
+            return res.status(200).json({});
         }
         
     }catch{

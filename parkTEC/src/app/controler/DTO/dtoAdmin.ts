@@ -17,4 +17,16 @@ export class DTOAdmin {
     buscarUsuario (nombre: string, apellido1: string, apellido2: string):Observable<any> {
         return this.control.buscarUsuario(nombre, apellido1, apellido2);
     }
+
+    editarUsuario(usuario: any) :Observable<any> {
+        return this.control.editarUsuario(usuario);
+    }
+
+    crearUsuario(usuario: any) :Observable<any> {
+        return this.control.crearUsuario(usuario);
+    }
+
+    eliminarUsuario(id: string) :Observable<any> {
+        return this.control.eliminarUsuario(id);
+    }
 }

@@ -28,6 +28,8 @@ import { InfoUsuarioComponent } from './interfaz/funcionario/info-usuario/info-u
 import { MenuAdminComponent } from './interfaz/administrador/menu-admin/menu-admin.component';
 import { ParqueosComponent } from './interfaz/administrador/parqueos/parqueos.component';
 import { EditarUsuarioComponent } from './interfaz/administrador/editar-usuario/editar-usuario.component';
+import { DialogeditusuarioComponent } from './interfaz/administrador/editar-usuario/dialogeditusuario/dialogeditusuario.component';
+import { DialogcrearusuarioComponent } from './interfaz/administrador/editar-usuario/dialogcrearusuario/dialogcrearusuario.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { EditarUsuarioComponent } from './interfaz/administrador/editar-usuario/
     InfoUsuarioComponent,
     MenuAdminComponent,
     ParqueosComponent,
-    EditarUsuarioComponent
+    EditarUsuarioComponent,
+    DialogeditusuarioComponent,
+    DialogcrearusuarioComponent
   ],
   imports: [
     BrowserModule,

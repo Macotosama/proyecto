@@ -7,7 +7,7 @@ const router = Router();
 router.get('/login-admin/:user/:contra', async (req, res) => {
     try{
         const adminS = db.collection("usuario");
-        const query = adminS.where("tipo_usuario", "==", true).where("contrasena",  "==", ""+req.params.contra).where("email",  "==", ""+req.params.user);
+        const query = adminS.where("tipo_usuario", "==", true).where("contrasena",  "==", ""+req.params.contra).where("correo_institucional",  "==", ""+req.params.user);
         
         const querySnapShot = await query.get();
         const docs = querySnapShot.docs;

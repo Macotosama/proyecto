@@ -18,4 +18,16 @@ export class Control {
     buscarUsuario (nombre: string, apellido1: string, apellido2: string):Observable<any> {
         return this.gestorAdmin.buscarUsuario(nombre, apellido1, apellido2);
     }
+
+    editarUsuario(usuario: any) :Observable<any> {
+        return this.gestorAdmin.editarUsuario(usuario);
+    }
+
+    crearUsuario(usuario: any) :Observable<any> {
+        return this.gestorAdmin.crearUsuario(usuario);
+    }
+
+    eliminarUsuario(id: string) :Observable<any> {
+        return this.gestorAdmin.eliminarUsuario(id);
+    }
 }

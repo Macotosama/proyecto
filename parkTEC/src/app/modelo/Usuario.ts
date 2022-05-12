@@ -5,11 +5,13 @@ export interface Usuario {
     apellido2: string;
     cedula: string;
     contrasena: string;
-    discapacidad: string;
+    discapacidad: boolean;
     email: string;
     departamento: string;
-    jefe: string;
+    jefe: boolean;
     nombre: string;
     puesto_laboral: string;
-    tipo_usuario: string;
+    tipo_usuario: boolean;
+    correo_institucional: string;
+    id: string;
 }

@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="inputContainer">
+        <mat-form-field appearance="outline" class="input">
+            <mat-label>Nombre</mat-label>
+            <input [(ngModel)]="usuario.nombre" matInput placeholder="Placeholder">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="outline" class="input">
+            <mat-label>Primer apellido</mat-label>
+            <input [(ngModel)]="usuario.apellido1" matInput placeholder="Placeholder">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="outline" class="input">
+            <mat-label>Segundo apellido</mat-label>
+            <input [(ngModel)]="usuario.apellido2" matInput placeholder="Placeholder">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="outline" class="input">
+            <mat-label>Correo institucional</mat-label>
+            <input [(ngModel)]="usuario.correo_institucional" matInput placeholder="Placeholder">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="outline" class="input">
+            <mat-label>Cédula</mat-label>
+            <input [(ngModel)]="usuario.cedula" matInput placeholder="Placeholder">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="outline" class="input">
+            <mat-label>Email</mat-label>
+            <input [(ngModel)]="usuario.email" matInput placeholder="Placeholder">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="outline" class="input">
+            <mat-label>Departamento</mat-label>
+            <input [(ngModel)]="usuario.departamento" matInput placeholder="Placeholder">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="outline" class="input">
+            <mat-label>Puesto laboral</mat-label>
+            <input [(ngModel)]="usuario.puesto_laboral" matInput placeholder="Placeholder">
+        </mat-form-field>
+    </div>
+    <mat-checkbox class="check-arrendar" [(ngModel)]="usuario.discapacidad">Discapacidad</mat-checkbox>
+    <mat-checkbox class="check-arrendar" [(ngModel)]="usuario.jefe">Jefatura</mat-checkbox>
+    <mat-checkbox class="check-arrendar" [(ngModel)]="usuario.tipo_usuario">Administrador</mat-checkbox>
+    <div>
+        <mat-form-field appearance="outline" class="input">
+            <mat-label>Contraseña</mat-label>
+            <input [(ngModel)]="usuario.contrasena" matInput placeholder="Placeholder">
+        </mat-form-field>
+    </div>
+    <div class="botones">
+        <button class="boton aceptar" (click)="editar()"><span>Aceptar</span> </button>
+        <button class="boton cancelar" (click)="cerrar()"><span>Cancelar</span></button>
+    </div>
+</div>
