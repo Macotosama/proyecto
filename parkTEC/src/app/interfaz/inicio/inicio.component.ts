@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import  { dtoUsuario }  from '../../controler/DTO/dtoUsuario';
+import { DTOAdmin } from 'src/app/controler/DTO/dtoAdmin';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-inicio',
@@ -15,7 +17,7 @@ export class InicioComponent implements OnInit {
   contrasenaFuncio = '';
   userFuncio = '';
 
-  constructor(private router:dtoUsuario) { }
+  constructor(private dto: DTOAdmin, private router: Router, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -27,9 +29,27 @@ export class InicioComponent implements OnInit {
   }
 
   loguinAdmin () {
-    this.router.loguin(this.userFuncio, this.contrasenaAdmin).subscribe(res =>{
-      console.log(res)
-    })
+    if (this.verificarLogin(this.userAdmin, this.contrasenaAdmin)) {
+      this.dto.loginAdmin(this.userAdmin, this.contrasenaAdmin).subscribe(res => {
+        if (res.estatus) {
+          this.router.navigate(['/menuAdmin']);
+        } else {
+          this._snackBar.open('Correo electrónico o contraseña equivocados', 'Aceptar');
+        }
+    });
+
+    } else {
+      this._snackBar.open('Ingrese los datos solicitados', 'Aceptar');
+    }
+
+  }
+
+  verificarLogin(user: string, contra: string) {
+    if (user != '' && contra != '') {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 }

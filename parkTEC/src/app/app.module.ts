@@ -18,6 +18,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { InicioComponent } from './interfaz/inicio/inicio.component';
 import { MenuPrincipalComponent } from './interfaz/funcionario/menu-principal/menu-principal.component';
@@ -56,7 +57,8 @@ import { EditarUsuarioComponent } from './interfaz/administrador/editar-usuario/
     MatDatepickerModule,
     MatNativeDateModule,
     MatDialogModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

@@ -41,7 +41,7 @@
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="inputLogin">
                         <mat-label>Contraseña</mat-label>
-                        <input [(ngModel)]="contrasenaFuncio" matInput placeholder="Placeholder" [type]="hide ? 'password' : 'text'" [(ngModel)]="contrasenaFuncio">
+                        <input [(ngModel)]="contrasenaAdmin" matInput placeholder="Placeholder" [type]="hide ? 'password' : 'text'" [(ngModel)]="contrasenaFuncio">
                         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>
