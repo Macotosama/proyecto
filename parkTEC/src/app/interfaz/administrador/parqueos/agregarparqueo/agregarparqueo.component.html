@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="inputContainer">
+        <mat-form-field appearance="outline" class="input">
+            <mat-label>Nombre</mat-label>
+            <input [(ngModel)]="parqueo.nombre" matInput placeholder="Placeholder">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="outline" class="input">
+            <mat-label>Dirección</mat-label>
+            <input [(ngModel)]="parqueo.direccion" matInput placeholder="Placeholder">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="outline" class="input">
+            <mat-label>Horario</mat-label>
+            <input [(ngModel)]="parqueo.horarios" matInput placeholder="Placeholder">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="outline" class="input">
+            <mat-label>Tipo parqueo</mat-label>
+            <input [(ngModel)]="parqueo.tipo_parqueo" matInput placeholder="Placeholder">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="outline" class="input">
+            <mat-label>Espacios</mat-label>
+            <input [(ngModel)]="parqueo.espacios" matInput placeholder="Placeholder">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="outline" class="input">
+            <mat-label>Automovil</mat-label>
+            <input [(ngModel)]="parqueo.automovil" matInput placeholder="Placeholder">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="outline" class="input">
+            <mat-label>Motocicletas</mat-label>
+            <input [(ngModel)]="parqueo.motocicleta" matInput placeholder="Placeholder">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="outline" class="input">
+            <mat-label>Discapacitados</mat-label>
+            <input [(ngModel)]="parqueo.discapacitado" matInput placeholder="Placeholder" type="number">
+        </mat-form-field>
+    </div>
+    <div class="botones">
+        <button class="boton aceptar" (click)="editar()"><span>Aceptar</span> </button>
+        <button class="boton cancelar" (click)="cerrar()"><span>Cancelar</span></button>
+    </div>
+</div>

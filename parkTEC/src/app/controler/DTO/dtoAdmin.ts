@@ -29,4 +29,12 @@ export class DTOAdmin {
     eliminarUsuario(id: string) :Observable<any> {
         return this.control.eliminarUsuario(id);
     }
+
+    parqueos() :Observable<any> {
+        return this.control.parqueos();
+    }
+
+    editarParqueos(paruqeo: any) :Observable<any> {
+        return this.control.editarParqueos(paruqeo);
+    }
 }

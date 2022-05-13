@@ -11,4 +11,5 @@ app.use(express.urlencoded({extended: false}));
 app.use('/api' , require('./routes/index'));
 app.use('/admin' , require('./routes/admin'));
 app.use('/user', require('./routes/Usuario'));
+app.use('/parqueo', require('./routes/Parqueo'))
 module.exports = app;

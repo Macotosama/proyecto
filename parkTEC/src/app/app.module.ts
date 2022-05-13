@@ -30,6 +30,8 @@ import { ParqueosComponent } from './interfaz/administrador/parqueos/parqueos.co
 import { EditarUsuarioComponent } from './interfaz/administrador/editar-usuario/editar-usuario.component';
 import { DialogeditusuarioComponent } from './interfaz/administrador/editar-usuario/dialogeditusuario/dialogeditusuario.component';
 import { DialogcrearusuarioComponent } from './interfaz/administrador/editar-usuario/dialogcrearusuario/dialogcrearusuario.component';
+import { EditarparqueoComponent } from './interfaz/administrador/parqueos/editarparqueo/editarparqueo.component';
+import { AgregarparqueoComponent } from './interfaz/administrador/parqueos/agregarparqueo/agregarparqueo.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { DialogcrearusuarioComponent } from './interfaz/administrador/editar-usu
     ParqueosComponent,
     EditarUsuarioComponent,
     DialogeditusuarioComponent,
-    DialogcrearusuarioComponent
+    DialogcrearusuarioComponent,
+    EditarparqueoComponent,
+    AgregarparqueoComponent,
   ],
   imports: [
     BrowserModule,

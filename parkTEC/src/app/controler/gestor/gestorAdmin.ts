@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Parqueos } from 'src/app/modelo/Parqueos';
 import { Usuario } from 'src/app/modelo/Usuario';
 import { Vehiculo } from 'src/app/modelo/Vehiculo';
 
@@ -21,6 +22,8 @@ const httpOption = {
     ediatarUsuarioad = 'user/edit-usuario';
     crearUsuarioad = 'user/new-usuario';
     eliminarUsuarioad = 'user/delete-usuario/';
+    parqueosad = 'parqueo/parqueos';
+    parqueoeditad = 'parqueo/edit-parqueo';
 
     constructor(private _http: HttpClient) {}
 
@@ -43,5 +46,13 @@ const httpOption = {
     eliminarUsuario(id: string) :Observable<any> {
       console.log(`${this.port}${this.eliminarUsuarioad}${id}`)
       return this._http.delete(`${this.port}${this.login}${id}`, httpOption);
+    }
+
+    parqueos() :Observable<any> {
+      return this._http.get(`${this.port}${this.parqueosad}`, httpOption);
+    }
+
+    editarParqueos(paruqeo: any) :Observable<any> {
+      return this._http.put(`${this.port}${this.parqueoeditad}`, paruqeo, httpOption);
     }
   }

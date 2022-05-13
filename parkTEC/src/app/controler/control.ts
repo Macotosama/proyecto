@@ -30,4 +30,12 @@ export class Control {
     eliminarUsuario(id: string) :Observable<any> {
         return this.gestorAdmin.eliminarUsuario(id);
     }
+
+    parqueos() :Observable<any> {
+        return this.gestorAdmin.parqueos();
+    }
+
+    editarParqueos(paruqeo: any) :Observable<any> {
+        return this.gestorAdmin.editarParqueos(paruqeo);
+    }
 }
