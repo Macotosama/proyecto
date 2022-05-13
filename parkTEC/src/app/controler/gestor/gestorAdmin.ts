@@ -20,7 +20,7 @@ const httpOption = {
     buscarUsuarioCompleto = 'user/buscar-usuario/';
     ediatarUsuarioad = 'user/edit-usuario';
     crearUsuarioad = 'user/new-usuario';
-    eliminarUsuarioad = 'user/delet-usuario';
+    eliminarUsuarioad = 'user/delete-usuario/';
 
     constructor(private _http: HttpClient) {}
 
@@ -41,7 +41,7 @@ const httpOption = {
     }
 
     eliminarUsuario(id: string) :Observable<any> {
-      console.log(`${this.port}${this.eliminarUsuarioad}/${id}`)
-      return this._http.delete(`${this.port}${this.eliminarUsuarioad}/${id}`, httpOption);
+      console.log(`${this.port}${this.eliminarUsuarioad}${id}`)
+      return this._http.delete(`${this.port}${this.login}${id}`, httpOption);
     }
   }
