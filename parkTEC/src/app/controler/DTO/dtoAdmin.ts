@@ -37,4 +37,8 @@ export class DTOAdmin {
     editarParqueos(paruqeo: any) :Observable<any> {
         return this.control.editarParqueos(paruqeo);
     }
+
+    crearParqueos(paruqeo: any) :Observable<any> {
+        return this.control.crearParqueos(paruqeo);
+    }
 }

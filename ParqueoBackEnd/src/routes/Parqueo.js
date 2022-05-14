@@ -4,6 +4,50 @@ const admin = require('firebase-admin');//Esta constante es la encargada de prop
 
 const db = admin.firestore();
 
+//Crea un parqueo - Premiun
+router.post('/crear-parqueo', async (req, res) => {
+    try {
+        console.log(req.body)
+        const {direccion, espacios, horarios, nombre, tipo_parqueo, motocicleta, automovil, discapacitado} = req.body
+        var docs = await db.collection('parqueo').add({
+            direccion,
+            espacios,
+            horarios,
+            nombre,
+            tipo_parqueo,
+            motocicleta,
+            automovil,
+            discapacitado,
+        });
+        console.log(docs.id);
+        for (let i = 0; i < motocicleta; i++) {
+            await db.collection('estacionamiento').add({
+                enUso: false,
+                idparqueo: docs.id,
+                tipo: 'motocicleta',
+            });
+        };
+        for (let i = 0; i < automovil; i++) {
+            await db.collection('estacionamiento').add({
+                enUso: false,
+                idparqueo: docs.id,
+                tipo: 'automovil',
+            });
+        };
+        for (let i = 0; i < discapacitado; i++) {
+            await db.collection('estacionamiento').add({
+                enUso: false,
+                idparqueo: docs.id,
+                tipo: 'discapacitado',
+            });
+        };
+        return res.status(200).json({status: true});
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send(error)
+    }
+});
+
 //Editar un parqueo - Premiun
 router.put('/edit-parqueo', async (req, res) => {
     try {

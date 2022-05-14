@@ -35,7 +35,7 @@ export class ParqueosComponent implements OnInit {
       width: '500px', height: '780px', data:parqueo});
   }
 
-  openCreate(parqueo: Parqueos) {
+  openCreate() {
     this.dialog.open(AgregarparqueoComponent, {
       width: '500px', height: '780px'});
   }

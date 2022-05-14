@@ -32,10 +32,10 @@ export class AgregarparqueoComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  editar() {
+  craer() {
     if (this.parqueo.direccion != '' && this.parqueo.horarios != '' && this.parqueo.nombre != '' && this.parqueo.tipo_parqueo != '') {
-      this.servicio.editarParqueos(this.parqueo).subscribe(_ => {
-        this._snackBar.open('Datos actualizados', 'Aceptar');
+      this.servicio.crearParqueos(this.parqueo).subscribe(_ => {
+        this._snackBar.open('Parqueo creado', 'Aceptar');
         this.cerrar();
       })
     }

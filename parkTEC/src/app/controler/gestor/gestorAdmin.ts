@@ -24,6 +24,7 @@ const httpOption = {
     eliminarUsuarioad = 'user/delete-usuario/';
     parqueosad = 'parqueo/parqueos';
     parqueoeditad = 'parqueo/edit-parqueo';
+    parqueocrearad = 'parqueo/crear-parqueo';
 
     constructor(private _http: HttpClient) {}
 
@@ -54,5 +55,9 @@ const httpOption = {
 
     editarParqueos(paruqeo: any) :Observable<any> {
       return this._http.put(`${this.port}${this.parqueoeditad}`, paruqeo, httpOption);
+    }
+
+    crearParqueos(paruqeo: any) :Observable<any> {
+      return this._http.post(`${this.port}${this.parqueocrearad}`, paruqeo, httpOption);
     }
   }

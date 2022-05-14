@@ -38,4 +38,8 @@ export class Control {
     editarParqueos(paruqeo: any) :Observable<any> {
         return this.gestorAdmin.editarParqueos(paruqeo);
     }
+
+    crearParqueos(paruqeo: any) :Observable<any> {
+        return this.gestorAdmin.crearParqueos(paruqeo);
+    }
 }
