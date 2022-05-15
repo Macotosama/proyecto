@@ -17,9 +17,9 @@
         <form>
             <mat-form-field appearance="outline">
               <mat-label>Ubicaiones</mat-label>
-              <mat-select [(ngModel)]="ubicacion" name="ubi">
-                <mat-option *ngFor="let ubi of ubicaciones" [value]="ubi.value">
-                  {{ubi.view}}
+              <mat-select [(ngModel)]="ubicacion" name="ubi" (selectionChange)="estacionaBuscar()">
+                <mat-option *ngFor="let ubi of ubicaciones" [value]="ubi.id" >
+                  {{ubi.nombre}}
                 </mat-option>
               </mat-select>
             </mat-form-field>
@@ -28,7 +28,7 @@
           <mat-radio-group class="gurpoRadius"
             [(ngModel)]="aparcamiento">
             <mat-radio-button class="radioButton" *ngFor="let aparca of aparcamientos" class="item" [value]="aparca">
-              {{aparca.name}}
+              {{aparca.tipo}}
             </mat-radio-button>
           </mat-radio-group>
         </div>

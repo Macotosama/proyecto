@@ -4,6 +4,23 @@ const admin = require('firebase-admin');//Esta constante es la encargada de prop
 
 const db = admin.firestore();
 
+//Solo nombre de estacionamientos - Premiun
+router.get('/parqueos-nombre', async(req, res) => {
+    try {
+        const query = await db.collection('parqueo').get();
+        const docs = query.docs;
+        console.log(docs)
+        const response = docs.map((doc)=>({
+            id: doc.id,
+            nombre: doc.data().nombre,
+        }));
+        return res.status(200).json(response);
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send(error)
+    }
+});
+
 //Crea un parqueo - Premiun
 router.post('/crear-parqueo', async (req, res) => {
     try {
@@ -86,7 +103,7 @@ router.get('/parqueos', async(req, res) => {
         console.log(error);
         return res.status(500).send(error)
     }
-})
+});
 
 
 // router.get('/api/Parqueo/:ref', async(req,res)=>{

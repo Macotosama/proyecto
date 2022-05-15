@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { GestorAdmin } from "./gestor/gestorAdmin";
 import { Observable } from 'rxjs';
+import { GestorUsuario } from './gestor/gestorUsuario';
 
 @Injectable({
     providedIn: 'root'
@@ -9,7 +10,7 @@ import { Observable } from 'rxjs';
 
 export class Control {
     
-    constructor(private gestorAdmin: GestorAdmin) { }
+    constructor(private gestorAdmin: GestorAdmin, private gestorUsuario: GestorUsuario) { }
 
     loginAdmin (userAdmin: string, contrasenaAdmin: string):Observable<any> {
         return this.gestorAdmin.loginAdmin(userAdmin, contrasenaAdmin);
@@ -41,5 +42,37 @@ export class Control {
 
     crearParqueos(paruqeo: any) :Observable<any> {
         return this.gestorAdmin.crearParqueos(paruqeo);
+    }
+
+    loginUsuario (userUusauiro: string, contrasenaUsaurio: string):Observable<any> {
+        return this.gestorUsuario.loginUsuario(userUusauiro, contrasenaUsaurio);
+    }
+
+    parqueosNombre():Observable<any> {
+        return this.gestorUsuario.parqueosNombre();
+    }
+    
+    busquedaId(id: string):Observable<any> {
+        return this.gestorUsuario.busquedaId(id);
+    }
+
+    vehiculosId(id: string):Observable<any> {
+        return this.gestorUsuario.vehiculosId(id);
+    }
+
+    vehiculoEdit(vehiculo: any):Observable<any> {
+        return this.gestorUsuario.vehiculoEdit(vehiculo);
+    }
+
+    vehiculoNew(vehiculo: any):Observable<any> {
+        return this.gestorUsuario.vehiculoNew(vehiculo);
+    }
+
+    horariosBus(id: string):Observable<any> {
+        return this.gestorUsuario.horariosBus(id);
+    }
+
+    estacionaBuscar(id: string):Observable<any> {
+        return this.gestorUsuario.estacionaBuscar(id);
     }
 }

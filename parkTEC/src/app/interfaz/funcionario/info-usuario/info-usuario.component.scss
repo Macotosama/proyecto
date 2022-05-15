@@ -103,9 +103,32 @@ p {
     border-left: 1px solid black;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: auto;
 }
 
-.agregar {
+.vehiculos {
+    margin-top: 20px;
+    // margin-left: 20px;
+    width: 80%;
+}
 
+.vehiculo {
+    padding-bottom: 5px;
+    border: none;
+    border-style: solid;
+    border-top: 0px;
+    border-left: 0px;
+    // border-bottom: 1px;
+    border-right: 0px;
+    margin-bottom: 10px;
+}
+
+.dias {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    margin-top: 50px;
 }

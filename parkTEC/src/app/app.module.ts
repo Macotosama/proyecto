@@ -19,6 +19,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatButtonModule } from '@angular/material/button';
 
 import { InicioComponent } from './interfaz/inicio/inicio.component';
 import { MenuPrincipalComponent } from './interfaz/funcionario/menu-principal/menu-principal.component';
@@ -32,6 +33,8 @@ import { DialogeditusuarioComponent } from './interfaz/administrador/editar-usua
 import { DialogcrearusuarioComponent } from './interfaz/administrador/editar-usuario/dialogcrearusuario/dialogcrearusuario.component';
 import { EditarparqueoComponent } from './interfaz/administrador/parqueos/editarparqueo/editarparqueo.component';
 import { AgregarparqueoComponent } from './interfaz/administrador/parqueos/agregarparqueo/agregarparqueo.component';
+import { EditarautomovilComponent } from './interfaz/funcionario/info-usuario/editarautomovil/editarautomovil.component';
+import { CrearautomovilComponent } from './interfaz/funcionario/info-usuario/crearautomovil/crearautomovil.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +51,8 @@ import { AgregarparqueoComponent } from './interfaz/administrador/parqueos/agreg
     DialogcrearusuarioComponent,
     EditarparqueoComponent,
     AgregarparqueoComponent,
+    EditarautomovilComponent,
+    CrearautomovilComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,7 +71,8 @@ import { AgregarparqueoComponent } from './interfaz/administrador/parqueos/agreg
     MatNativeDateModule,
     MatDialogModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatButtonModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

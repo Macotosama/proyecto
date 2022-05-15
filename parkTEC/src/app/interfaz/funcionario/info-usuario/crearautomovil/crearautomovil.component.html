@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="inputContainer">
+        <mat-form-field appearance="outline" class="input">
+            <mat-label>Placa</mat-label>
+            <input [(ngModel)]="automovil.placa" matInput placeholder="Placeholder">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="outline" class="input">
+            <mat-label>Modelo</mat-label>
+            <input [(ngModel)]="automovil.modelo" matInput placeholder="Placeholder">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="outline" class="input">
+            <mat-label>Color</mat-label>
+            <input [(ngModel)]="automovil.color" matInput placeholder="Placeholder">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="outline" class="input">
+            <mat-label>Tipo de transporte</mat-label>
+            <input [(ngModel)]="automovil.tipo_transporte" matInput placeholder="Placeholder">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="outline" class="input">
+            <mat-label>Año</mat-label>
+            <input [(ngModel)]="automovil.anno" matInput placeholder="Placeholder">
+        </mat-form-field>
+    </div>
+    <div class="botones">
+        <button class="boton aceptar" (click)="editar()"><span>Aceptar</span> </button>
+        <button class="boton cancelar" (click)="cerrar()"><span>Cancelar</span></button>
+    </div>
+</div>
