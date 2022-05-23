@@ -11,7 +11,7 @@ router.get('/buscar-estacionamientos/:id', async (req, res) => {
         
         const querySnapShot = await query.get();
         const docs = querySnapShot.docs;
-        const response = docs.map((doc)=>({
+        const response = docs   .map((doc)=>({
             id: doc.id,
             ...doc.data(),
         }));

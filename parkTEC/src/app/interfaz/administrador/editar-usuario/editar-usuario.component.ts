@@ -5,7 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogeditusuarioComponent } from './dialogeditusuario/dialogeditusuario.component';
 import { DialogcrearusuarioComponent } from './dialogcrearusuario/dialogcrearusuario.component';
 import { Usuario } from 'src/app/modelo/Usuario';
-
+import { Vehiculo } from 'src/app/modelo/Vehiculo';
 
 @Component({
   selector: 'app-editar-usuario',
@@ -32,6 +32,10 @@ export class EditarUsuarioComponent implements OnInit {
     correo_institucional: '',
     id: ''
   }
+
+  automoviles = new Array<Vehiculo>();
+
+  borrardespues = 'Hola'
 
   constructor(private _snackBar: MatSnackBar, private dto: DTOAdmin, public dialog: MatDialog) { }
 
