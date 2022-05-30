@@ -6,6 +6,7 @@ import { Vehiculo } from 'src/app/modelo/Vehiculo';
 import { MatDialog } from '@angular/material/dialog';
 import { EditarautomovilComponent } from './editarautomovil/editarautomovil.component';
 import { CrearautomovilComponent } from './crearautomovil/crearautomovil.component';
+import { EdiitarPerfilComponent } from './ediitar-perfil/ediitar-perfil.component';
 import { Horario } from 'src/app/modelo/Horario';
 
 @Component({
@@ -120,6 +121,11 @@ export class InfoUsuarioComponent implements OnInit {
   openEdit(ato: Vehiculo) {
     this.dialog.open(EditarautomovilComponent, {
       width: '500px', height: '700px', data:ato});
+  }
+
+  openEditInfoUsuario () {
+    this.dialog.open(EdiitarPerfilComponent, {
+      width: '900px', height: '500px', data: this.usaurio}); 
   }
 
   openCreate() {

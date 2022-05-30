@@ -21,12 +21,22 @@ header{
 } 
 
 header .contaiter{
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
     justify-content: center;
     align-items: center;
-    height: 100px;
+    height: 10%;
 }
+
+.logo {
+    margin: auto;
+}
+
+.persona {
+    font-size: 20px;
+    color: white;
+}
+
 
 .salida {
     position: absolute;
@@ -70,4 +80,22 @@ img {
     grid-column: 3fr;
     align-items: center;
     justify-content: center;
+}
+
+.pienDepagina {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 10%;
+}
+
+.containerFooter {
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: auto;
 }

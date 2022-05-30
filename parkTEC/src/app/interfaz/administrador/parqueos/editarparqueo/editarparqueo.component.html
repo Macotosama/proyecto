@@ -2,49 +2,58 @@
     <div class="inputContainer">
         <mat-form-field appearance="outline" class="input">
             <mat-label>Nombre</mat-label>
-            <input [(ngModel)]="parqueo.nombre" matInput placeholder="Placeholder">
+            <input [(ngModel)]="parqueo.nombre" matInput placeholder="Nombre">
         </mat-form-field>
     </div>
     <div>
         <mat-form-field appearance="outline" class="input">
             <mat-label>Dirección</mat-label>
-            <input [(ngModel)]="parqueo.direccion" matInput placeholder="Placeholder">
+            <input [(ngModel)]="parqueo.direccion" matInput placeholder="Dirección">
         </mat-form-field>
     </div>
     <div>
         <mat-form-field appearance="outline" class="input">
-            <mat-label>Horario</mat-label>
-            <input [(ngModel)]="parqueo.horarios" matInput placeholder="Placeholder">
+            <mat-label>Hora de apertura</mat-label>
+            <input [(ngModel)]="parqueo.apertura" matInput placeholder="Apertura" type="time">
         </mat-form-field>
     </div>
     <div>
         <mat-form-field appearance="outline" class="input">
-            <mat-label>Tipo parqueo</mat-label>
-            <input [(ngModel)]="parqueo.tipo_parqueo" matInput placeholder="Placeholder">
+            <mat-label>Hora de cierre</mat-label>
+            <input [(ngModel)]="parqueo.cierre" matInput placeholder="Cierre" type="time">
         </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="outline" class="input">
+            <mat-label>Tipo de parqueo</mat-label>
+            <mat-select [(ngModel)]="parqueo.tipo_parqueo">
+              <mat-option value="tec">TEC</mat-option>
+              <mat-option value="contratista">Contratista</mat-option>
+            </mat-select>
+          </mat-form-field>
     </div>
     <div>
         <mat-form-field appearance="outline" class="input">
             <mat-label>Espacios</mat-label>
-            <input [(ngModel)]="parqueo.espacios" matInput placeholder="Placeholder">
+            <input [(ngModel)]="parqueo.espacios" matInput placeholder="Espacios">
         </mat-form-field>
     </div>
     <div>
         <mat-form-field appearance="outline" class="input">
             <mat-label>Automovil</mat-label>
-            <input [(ngModel)]="parqueo.automovil" matInput placeholder="Placeholder">
+            <input [(ngModel)]="parqueo.automovil" matInput placeholder="Automovil" type="number">
         </mat-form-field>
     </div>
     <div>
         <mat-form-field appearance="outline" class="input">
-            <mat-label>Motocicletas</mat-label>
-            <input [(ngModel)]="parqueo.motocicleta" matInput placeholder="Placeholder">
+            <mat-label>Jefes</mat-label>
+            <input [(ngModel)]="parqueo.motocicleta" matInput placeholder="Jefes" type="number">
         </mat-form-field>
     </div>
     <div>
         <mat-form-field appearance="outline" class="input">
             <mat-label>Discapacitados</mat-label>
-            <input [(ngModel)]="parqueo.discapacitado" matInput placeholder="Placeholder" type="number">
+            <input [(ngModel)]="parqueo.discapacitado" matInput placeholder="Discapacitados" type="number">
         </mat-form-field>
     </div>
     <div class="botones">
