@@ -56,7 +56,31 @@
                     </button>
                 </div>
             </mat-tab>
-
+            <mat-tab label="Operador">
+                <div class="inicio">
+                    <h2>Operador</h2>
+                    <h3>Ingresar</h3>
+                    <mat-form-field appearance="outline" class="inputLogin">
+                        <mat-label>Correo Electrónico</mat-label>
+                        <input matInput placeholder="EMAIL" inputmode="email" [(ngModel)]="userAdmin">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="inputLogin">
+                        <mat-label>Contraseña</mat-label>
+                        <input [(ngModel)]="contrasenaAdmin" matInput placeholder="Placeholder" [type]="hide ? 'password' : 'text'" [(ngModel)]="contrasenaFuncio">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                    <button class="buttonAcept" (click)="loguinAdmin()">
+                        <div class="icono">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                            </svg>
+                        </div>
+                        <span>Iniciar Sesión</span>
+                    </button>
+                </div>
+            </mat-tab>
         </mat-tab-group>
     </div>
 </section>

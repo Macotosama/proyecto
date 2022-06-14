@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DTOAdmin } from 'src/app/controler/DTO/dtoAdmin';
+import { Perfil } from 'src/app/modelo/Perfil';
 import { Usuario } from 'src/app/modelo/Usuario';
 
 @Component({
@@ -10,26 +11,81 @@ import { Usuario } from 'src/app/modelo/Usuario';
   styleUrls: ['./ediitar-perfil.component.scss']
 })
 export class EdiitarPerfilComponent implements OnInit {
-  usuario: Usuario = {
-    apellido1: '',
-    apellido2: '',
-    cedula: '',
-    contrasena: '',
-    discapacidad: true,
-    email: '',
-    departamento: '',
-    jefe: true,
-    nombre: '',
-    puesto_laboral: '',
-    tipo_usuario: true,
-    correo_institucional: '',
-    id: ''
+  perfil: Perfil = {
+    horarios: {
+      lunes: {
+        dia_semana: '',
+        horas_entradas: '',
+        horas_salidas: '',
+        idusuario: '',
+        id: ''
+      },
+      martes: {
+        dia_semana: '',
+        horas_entradas: '',
+        horas_salidas: '',
+        idusuario: '',
+        id: ''
+      },
+      miercoles: {
+        dia_semana: '',
+        horas_entradas: '',
+        horas_salidas: '',
+        idusuario: '',
+        id: ''
+      },
+      jueves: {
+        dia_semana: '',
+        horas_entradas: '',
+        horas_salidas: '',
+        idusuario: '',
+        id: ''
+      },
+      viernes: {
+        dia_semana: '',
+        horas_entradas: '',
+        horas_salidas: '',
+        idusuario: '',
+        id: ''
+      },
+      sabado: {
+        dia_semana: '',
+        horas_entradas: '',
+        horas_salidas: '',
+        idusuario: '',
+        id: ''
+      },
+      domingo: {
+        dia_semana: '',
+        horas_entradas: '',
+        horas_salidas: '',
+        idusuario: '',
+        id: ''
+      },
+    },
+
+    usuario: {
+      apellido1: '',
+      apellido2: '',
+      cedula: '',
+      contrasena: '',
+      discapacidad: true,
+      email: '',
+      departamento: '',
+      jefe: true,
+      nombre: '',
+      puesto_laboral: '',
+      tipo_usuario: true,
+      correo_institucional: '',
+      id: ''
+    },
   }
 
+
   constructor(public dialogRef: MatDialogRef<EdiitarPerfilComponent>,
-    private servicio: DTOAdmin, @Inject(MAT_DIALOG_DATA) public data: Usuario,
+    private servicio: DTOAdmin, @Inject(MAT_DIALOG_DATA) public data: Perfil,
     private _snackBar: MatSnackBar) { 
-      this.usuario = data;
+      this.perfil = data;
     }
 
   ngOnInit(): void {
@@ -40,9 +96,9 @@ export class EdiitarPerfilComponent implements OnInit {
   }
 
   editar() {
-    if (this.usuario.apellido1 != '' && this.usuario.apellido2 != '' && this.usuario.cedula != '' && this.usuario.contrasena != '' && this.usuario.correo_institucional != ''
-    && this.usuario.departamento != '' && this.usuario.email != '' && this.usuario.nombre != '' && this.usuario.puesto_laboral) {
-      this.servicio.editarUsuario(this.usuario).subscribe(_ => {
+    if (this.perfil.usuario.apellido1 != '' && this.perfil.usuario.apellido2 != '' && this.perfil.usuario.cedula != '' && this.perfil.usuario.contrasena != '' && this.perfil.usuario.correo_institucional != ''
+    && this.perfil.usuario.departamento != '' && this.perfil.usuario.email != '' && this.perfil.usuario.nombre != '' && this.perfil.usuario.puesto_laboral) {
+      this.servicio.editarUsuario(this.perfil.usuario).subscribe(_ => {
         this._snackBar.open('Datos actualizados', 'Aceptar');
         this.cerrar();
       })

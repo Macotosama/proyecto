@@ -1,9 +1,9 @@
 .container {
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    display: flex;
+    flex-direction: column  ;
 	align-items: center;
-	justify-content: center;
-    overflow: hidden;
+	// justify-content: center;
+    overflow: auto;
     height: 100%;
     width: 100%;
 }
@@ -12,6 +12,14 @@
     width: 100%;
     display: flex;
     flex-direction: row;
+}
+
+.lados {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start ;
 }
 
 .input {
@@ -44,6 +52,13 @@ span {
 	justify-content: center;
     background-color: #9411ff;
     color: white;
+}
+
+.horaio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .aceptar:hover {

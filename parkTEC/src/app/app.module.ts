@@ -36,6 +36,7 @@ import { AgregarparqueoComponent } from './interfaz/administrador/parqueos/agreg
 import { EditarautomovilComponent } from './interfaz/funcionario/info-usuario/editarautomovil/editarautomovil.component';
 import { CrearautomovilComponent } from './interfaz/funcionario/info-usuario/crearautomovil/crearautomovil.component';
 import { EdiitarPerfilComponent } from './interfaz/funcionario/info-usuario/ediitar-perfil/ediitar-perfil.component';
+import { MenuOperarioComponent } from './interfaz/operario/menu-operario/menu-operario.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { EdiitarPerfilComponent } from './interfaz/funcionario/info-usuario/edii
     EditarautomovilComponent,
     CrearautomovilComponent,
     EdiitarPerfilComponent,
+    MenuOperarioComponent,
   ],
   imports: [
     BrowserModule,

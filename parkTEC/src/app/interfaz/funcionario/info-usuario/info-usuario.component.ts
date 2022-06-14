@@ -8,6 +8,7 @@ import { EditarautomovilComponent } from './editarautomovil/editarautomovil.comp
 import { CrearautomovilComponent } from './crearautomovil/crearautomovil.component';
 import { EdiitarPerfilComponent } from './ediitar-perfil/ediitar-perfil.component';
 import { Horario } from 'src/app/modelo/Horario';
+import { Perfil } from 'src/app/modelo/Perfil';
 
 @Component({
   selector: 'app-info-usuario',
@@ -15,71 +16,75 @@ import { Horario } from 'src/app/modelo/Horario';
   styleUrls: ['./info-usuario.component.scss']
 })
 export class InfoUsuarioComponent implements OnInit {
-  usaurio: Usuario = {
-    apellido1: '',
-    apellido2: '',
-    cedula: '',
-    contrasena: '',
-    discapacidad: false,
-    email: '',
-    departamento: '',
-    jefe: false,
-    nombre: '',
-    puesto_laboral: '',
-    tipo_usuario: false,
-    correo_institucional: '',
-    id: '',
-  };
+  perfil: Perfil = {
+    horarios: {
+      lunes: {
+        dia_semana: '',
+        horas_entradas: '',
+        horas_salidas: '',
+        idusuario: '',
+        id: ''
+      },
+      martes: {
+        dia_semana: '',
+        horas_entradas: '',
+        horas_salidas: '',
+        idusuario: '',
+        id: ''
+      },
+      miercoles: {
+        dia_semana: '',
+        horas_entradas: '',
+        horas_salidas: '',
+        idusuario: '',
+        id: ''
+      },
+      jueves: {
+        dia_semana: '',
+        horas_entradas: '',
+        horas_salidas: '',
+        idusuario: '',
+        id: ''
+      },
+      viernes: {
+        dia_semana: '',
+        horas_entradas: '',
+        horas_salidas: '',
+        idusuario: '',
+        id: ''
+      },
+      sabado: {
+        dia_semana: '',
+        horas_entradas: '',
+        horas_salidas: '',
+        idusuario: '',
+        id: ''
+      },
+      domingo: {
+        dia_semana: '',
+        horas_entradas: '',
+        horas_salidas: '',
+        idusuario: '',
+        id: ''
+      },
+    },
 
-  lunes: Horario = {
-    dia_semana: '',
-    horas_entradas: '',
-    horas_salidas: '',
-    idusuario: '',
-    id: ''
-  };
-  martes: Horario = {
-    dia_semana: '',
-    horas_entradas: '',
-    horas_salidas: '',
-    idusuario: '',
-    id: ''
-  };
-  miercoles: Horario = {
-    dia_semana: '',
-    horas_entradas: '',
-    horas_salidas: '',
-    idusuario: '',
-    id: ''
-  };
-  jueves: Horario = {
-    dia_semana: '',
-    horas_entradas: '',
-    horas_salidas: '',
-    idusuario: '',
-    id: ''
-  };
-  viernes: Horario = {
-    dia_semana: '',
-    horas_entradas: '',
-    horas_salidas: '',
-    idusuario: '',
-    id: ''
-  };
-  sabado: Horario = {
-    dia_semana: '',
-    horas_entradas: '',
-    horas_salidas: '',
-    idusuario: '',
-    id: ''
-  };
-  domingo: Horario = {
-    dia_semana: '',
-    horas_entradas: '',
-    horas_salidas: '',
-    idusuario: '',
-    id: ''
-  };
+    usuario: {
+      apellido1: '',
+      apellido2: '',
+      cedula: '',
+      contrasena: '',
+      discapacidad: true,
+      email: '',
+      departamento: '',
+      jefe: true,
+      nombre: '',
+      puesto_laboral: '',
+      tipo_usuario: true,
+      correo_institucional: '',
+      id: ''
+    },
+  }
 
   automoviles = new Array<Vehiculo>();
 
@@ -100,7 +105,7 @@ export class InfoUsuarioComponent implements OnInit {
   getUsuario() {
     this.dtoU.busquedaId(this.cookieService.get("funcionario")).subscribe(res => {
       console.log(res)
-      this.usaurio = {
+      this.perfil.usuario = {
         apellido1: res.apellido1,
         apellido2: res.apellido2,
         cedula: res.cedula,
@@ -125,7 +130,7 @@ export class InfoUsuarioComponent implements OnInit {
 
   openEditInfoUsuario () {
     this.dialog.open(EdiitarPerfilComponent, {
-      width: '900px', height: '500px', data: this.usaurio}); 
+      width: '1000px', height: '900px', data: this.perfil}); 
   }
 
   openCreate() {
@@ -136,21 +141,22 @@ export class InfoUsuarioComponent implements OnInit {
   obtenerHorarios() {
     this.dtoU.horariosBus(this.cookieService.get('funcionario')).subscribe(res => {
       console.log(res)
+      console.log('Horarios')
       for(let i = 0; i < 7; i++) {
         if (res[i] == 'Lunes') {
-          this.lunes = res[i];
+          this.perfil.horarios.lunes = res[i];
         } else if (res[i] == 'Martes') {
-          this.martes = res[i];
+          this.perfil.horarios.martes = res[i];
         } else if (res[i] == 'Miércoles') {
-          this.miercoles = res[i];
+          this.perfil.horarios.miercoles = res[i];
         } else if (res[i] = 'Jueves') {
-          this.jueves = res[i];
+          this.perfil.horarios.jueves = res[i];
         } else if (res[i] = 'Viernes') {
-          this.viernes = res[i];
+          this.perfil.horarios.viernes = res[i];
         } else if (res[i] = 'Sábado') {
-          this.sabado = res[i];
+          this.perfil.horarios.sabado = res[i];
         } else {
-          this.domingo = res[i];
+          this.perfil.horarios.domingo = res[i];
         }
       }
     })

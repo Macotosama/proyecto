@@ -15,19 +15,19 @@
 <div class="overcontainer">
     <div class="izquierdo lados">
         <div class="nombre item">
-            <p>Nombre: {{usaurio.nombre}} {{usaurio.apellido1}} {{usaurio.apellido2}}</p>
+            <p>Nombre: {{perfil.usuario.nombre}} {{perfil.usuario.apellido1}} {{perfil.usuario.apellido2}}</p>
         </div>
         <div class="puesto item">
-            <p>Puesto: {{usaurio.puesto_laboral}}</p>
+            <p>Puesto: {{perfil.usuario.puesto_laboral}}</p>
         </div>
         <div class="correo item">
-            <p>Correo: {{usaurio.correo_institucional}}</p>
+            <p>Correo: {{perfil.usuario.correo_institucional}}</p>
         </div>
         <div class="departamento item">
-            <p>Departamento: {{usaurio.departamento}}</p>
+            <p>Departamento: {{perfil.usuario.departamento}}</p>
         </div>
         <div class="cedula item">
-            <p>Cédula: {{usaurio.cedula}}</p>
+            <p>Cédula: {{perfil.usuario.cedula}}</p>
         </div>
         <button class="editarPerfil" mat-stroked-button (click)="openEditInfoUsuario()">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
@@ -69,8 +69,8 @@
             <p><b>Lunes</b></p>
         </div>
         <div class="datos">
-            <p>Entrada: {{lunes.horas_entradas}}</p>
-            <p>Salida: {{lunes.horas_salidas}}</p>
+            <p>Entrada: {{perfil.horarios.lunes.horas_entradas}}</p>
+            <p>Salida: {{perfil.horarios.lunes.horas_salidas}}</p>
         </div>
     </div>
     <div class="dia">
@@ -78,8 +78,8 @@
             <p><b>Martes</b></p>
         </div>
         <div class="datos">
-            <p>Entrada: {{martes.horas_entradas}}</p>
-            <p>Salida: {{martes.horas_salidas}}</p>
+            <p>Entrada: {{perfil.horarios.martes.horas_entradas}}</p>
+            <p>Salida: {{perfil.horarios.martes.horas_salidas}}</p>
         </div>
     </div>
     <div class="dia">
@@ -87,8 +87,8 @@
             <p><b>Miércoles</b></p>
         </div>
         <div class="datos">
-            <p>Entrada: {{miercoles.horas_entradas}}</p>
-            <p>Salida: {{miercoles.horas_salidas}}</p>
+            <p>Entrada: {{perfil.horarios.miercoles.horas_entradas}}</p>
+            <p>Salida: {{perfil.horarios.miercoles.horas_salidas}}</p>
         </div>
     </div>
     <div class="dia">
@@ -96,8 +96,8 @@
             <p><b>Jueves</b></p>
         </div>
         <div class="datos">
-            <p>Entrada: {{jueves.horas_entradas}}</p>
-            <p>Salida: {{jueves.horas_salidas}}</p>
+            <p>Entrada: {{perfil.horarios.jueves.horas_entradas}}</p>
+            <p>Salida: {{perfil.horarios.jueves.horas_salidas}}</p>
         </div>
     </div>
     <div class="dia">
@@ -105,8 +105,8 @@
             <p><b>Viernes</b></p>
         </div>
         <div class="datos">
-            <p>Entrada: {{viernes.horas_entradas}}</p>
-            <p>Salida: {{viernes.horas_salidas}}</p>
+            <p>Entrada: {{perfil.horarios.viernes.horas_entradas}}</p>
+            <p>Salida: {{perfil.horarios.viernes.horas_salidas}}</p>
         </div>
     </div>
     <div class="dia">
@@ -114,8 +114,8 @@
             <p><b>Sábado</b></p>
         </div>
         <div class="datos">
-            <p>Entrada: {{sabado.horas_entradas}}</p>
-            <p>Salida: {{sabado.horas_salidas}}</p>
+            <p>Entrada: {{perfil.horarios.sabado.horas_entradas}}</p>
+            <p>Salida: {{perfil.horarios.sabado.horas_salidas}}</p>
         </div>
     </div>
     <div class="dia">
@@ -123,8 +123,8 @@
             <p><b>Domingo</b></p>
         </div>
         <div class="datos">
-            <p>Entrada: {{sabado.horas_entradas}}</p>
-            <p>Salida: {{sabado.horas_salidas}}</p>
+            <p>Entrada: {{perfil.horarios.domingo.horas_entradas}}</p>
+            <p>Salida: {{perfil.horarios.domingo.horas_salidas}}</p>
         </div>
     </div>
 </div>

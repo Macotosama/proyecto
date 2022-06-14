@@ -1,70 +1,160 @@
 <div class="container">
+    <div>
+        <h1>
+            Editar datos personales
+        </h1>
+    </div>
     <div class="personalInfo">
-        <div class="izquierda">
+        <div class="izquierda lados">
             <div class="inputContainer">
                 <mat-form-field appearance="outline" class="input">
                     <mat-label>Nombre</mat-label>
-                    <input [(ngModel)]="usuario.nombre" matInput placeholder="Placeholder">
+                    <input [(ngModel)]="perfil.usuario.nombre" matInput placeholder="Placeholder">
                 </mat-form-field>
             </div>
             <div>
                 <mat-form-field appearance="outline" class="input">
                     <mat-label>Primer apellido</mat-label>
-                    <input [(ngModel)]="usuario.apellido1" matInput placeholder="Placeholder">
+                    <input [(ngModel)]="perfil.usuario.apellido1" matInput placeholder="Placeholder">
                 </mat-form-field>
             </div>
             <div>
                 <mat-form-field appearance="outline" class="input">
                     <mat-label>Segundo apellido</mat-label>
-                    <input [(ngModel)]="usuario.apellido2" matInput placeholder="Placeholder">
+                    <input [(ngModel)]="perfil.usuario.apellido2" matInput placeholder="Placeholder">
                 </mat-form-field>
             </div>
             <div>
                 <mat-form-field appearance="outline" class="input">
                     <mat-label>Correo institucional</mat-label>
-                    <input [(ngModel)]="usuario.correo_institucional" matInput placeholder="Placeholder">
+                    <input [(ngModel)]="perfil.usuario.correo_institucional" matInput placeholder="Placeholder">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="outline" class="input">
+                    <mat-label>Contraseña</mat-label>
+                    <input [(ngModel)]="perfil.usuario.contrasena" matInput placeholder="Placeholder">
                 </mat-form-field>
             </div>
         </div>
-        <div class="derecha">
+        <div class="derecha lados">
             <div>
                 <mat-form-field appearance="outline" class="input">
                     <mat-label>Cédula</mat-label>
-                    <input [(ngModel)]="usuario.cedula" matInput placeholder="Placeholder">
+                    <input [(ngModel)]="perfil.usuario.cedula" matInput placeholder="Placeholder">
                 </mat-form-field>
             </div>
             <div>
                 <mat-form-field appearance="outline" class="input">
                     <mat-label>Email</mat-label>
-                    <input [(ngModel)]="usuario.email" matInput placeholder="Placeholder">
+                    <input [(ngModel)]="perfil.usuario.email" matInput placeholder="Placeholder">
                 </mat-form-field>
             </div>
             <div>
                 <mat-form-field appearance="outline" class="input">
                     <mat-label>Departamento</mat-label>
-                    <input [(ngModel)]="usuario.departamento" matInput placeholder="Placeholder">
+                    <input [(ngModel)]="perfil.usuario.departamento" matInput placeholder="Placeholder">
                 </mat-form-field>
             </div>
             <div>
                 <mat-form-field appearance="outline" class="input">
                     <mat-label>Puesto laboral</mat-label>
-                    <input [(ngModel)]="usuario.puesto_laboral" matInput placeholder="Placeholder">
+                    <input [(ngModel)]="perfil.usuario.puesto_laboral" matInput placeholder="Placeholder">
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h2>Horario</h2>
+    </div>
+    <div class="personalInfo">
+        <div class="izquierda lados">
+            <div class="horaio">
+                <h3>Lunes</h3>
+                <mat-form-field appearance="outline" class="input">
+                    <mat-label>Entreda</mat-label>
+                    <input [(ngModel)]="perfil.usuario.puesto_laboral" matInput placeholder="Placeholder">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="input">
+                    <mat-label>Salida</mat-label>
+                    <input [(ngModel)]="perfil.usuario.puesto_laboral" matInput placeholder="Placeholder">
+                </mat-form-field>
+            </div>
+            <div class="horaio">
+                <h3>Martes</h3>
+                <mat-form-field appearance="outline" class="input">
+                    <mat-label>Entreda</mat-label>
+                    <input [(ngModel)]="perfil.usuario.puesto_laboral" matInput placeholder="Placeholder">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="input">
+                    <mat-label>Salida</mat-label>
+                    <input [(ngModel)]="perfil.usuario.puesto_laboral" matInput placeholder="Placeholder">
+                </mat-form-field>
+            </div>
+            <div class="horaio">
+                <h3>Miércoles</h3>
+                <mat-form-field appearance="outline" class="input">
+                    <mat-label>Entreda</mat-label>
+                    <input [(ngModel)]="perfil.usuario.puesto_laboral" matInput placeholder="Placeholder">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="input">
+                    <mat-label>Salida</mat-label>
+                    <input [(ngModel)]="perfil.usuario.puesto_laboral" matInput placeholder="Placeholder">
+                </mat-form-field>
+            </div>
+            <div class="horaio">
+                <h3>Jueves</h3>
+                <mat-form-field appearance="outline" class="input">
+                    <mat-label>Entreda</mat-label>
+                    <input [(ngModel)]="perfil.usuario.puesto_laboral" matInput placeholder="Placeholder">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="input">
+                    <mat-label>Salida</mat-label>
+                    <input [(ngModel)]="perfil.usuario.puesto_laboral" matInput placeholder="Placeholder">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="derecha lados">
+            <div class="horaio">
+                <h3>Viernes</h3>
+                <mat-form-field appearance="outline" class="input">
+                    <mat-label>Entreda</mat-label>
+                    <input [(ngModel)]="perfil.usuario.puesto_laboral" matInput placeholder="Placeholder">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="input">
+                    <mat-label>Salida</mat-label>
+                    <input [(ngModel)]="perfil.usuario.puesto_laboral" matInput placeholder="Placeholder">
+                </mat-form-field>
+            </div>
+            <div class="horaio">
+                <h3>Sábado</h3>
+                <mat-form-field appearance="outline" class="input">
+                    <mat-label>Entreda</mat-label>
+                    <input [(ngModel)]="perfil.usuario.puesto_laboral" matInput placeholder="Placeholder">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="input">
+                    <mat-label>Salida</mat-label>
+                    <input [(ngModel)]="perfil.usuario.puesto_laboral" matInput placeholder="Placeholder">
+                </mat-form-field>
+            </div>
+            <div class="horaio">
+                <h3>Domingo</h3>
+                <mat-form-field appearance="outline" class="input">
+                    <mat-label>Entreda</mat-label>
+                    <input [(ngModel)]="perfil.usuario.puesto_laboral" matInput placeholder="Placeholder">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="input">
+                    <mat-label>Salida</mat-label>
+                    <input [(ngModel)]="perfil.usuario.puesto_laboral" matInput placeholder="Placeholder">
                 </mat-form-field>
             </div>
         </div>
     </div>
 
-
-
     <!-- <mat-checkbox class="check-arrendar" [(ngModel)]="usuario.discapacidad">Discapacidad</mat-checkbox>
     <mat-checkbox class="check-arrendar" [(ngModel)]="usuario.jefe">Jefatura</mat-checkbox>
     <mat-checkbox class="check-arrendar" [(ngModel)]="usuario.tipo_usuario">Administrador</mat-checkbox> -->
-    <div>
-        <mat-form-field appearance="outline" class="input">
-            <mat-label>Contraseña</mat-label>
-            <input [(ngModel)]="usuario.contrasena" matInput placeholder="Placeholder">
-        </mat-form-field>
-    </div>
+
     <div class="botones">
         <button class="boton aceptar" (click)="editar()"><span>Aceptar</span> </button>
         <button class="boton cancelar" (click)="cerrar()"><span>Cancelar</span></button>
