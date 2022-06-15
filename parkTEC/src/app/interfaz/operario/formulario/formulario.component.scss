@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+.container{
+    max-width: 1400px;
+    margin: auto;
+}
+
+header{
+    background-color: #03045e
+} 
+
+header .contaiter{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+.salida {
+    position: absolute;
+    background-color: #03045e;
+    color: white;
+    cursor: pointer;
+    right: 1%;
+    border: none;
+}
+
+.salida:hover {
+    background-color: #1d1e5c;
+}
+
+img { 
+    height: 90px;
+}
+
+.button {
+    width: 1000px;
+    height: 60%;
+    font-size: 50px;
+    border-radius: 5px;
+    border: none;
+	cursor: pointer;
+	text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    display: inline-flex;
+	align-items: center;
+	justify-content: center;
+    background-color: #5F59B2;
+    color: white;
+}
+
+.overContainer {
+    height: 90%;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.containerFormulario {
+    background-color: #F3F3F3;
+    height: 90%;
+    width: 50%;
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input {
+    width: 60%;
+}

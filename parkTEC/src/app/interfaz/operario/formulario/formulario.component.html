@@ -1,0 +1,67 @@
+<header>
+    <div class="contaiter">
+    <img [routerLink]="['/menuFuncionario']" src="../../../assets/logo.png" alt="Logo TEC">
+    <button [routerLink]="['/menuOperario']" class="salida">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-file-arrow-up" viewBox="0 0 16 16">
+            <path d="M8 11a.5.5 0 0 0 .5-.5V6.707l1.146 1.147a.5.5 0 0 0 .708-.708l-2-2a.5.5 0 0 0-.708 0l-2 2a.5.5 0 1 0 .708.708L7.5 6.707V10.5a.5.5 0 0 0 .5.5z"/>
+            <path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"/>
+        </svg>
+    </button>
+    </div>
+</header>
+<div class="overContainer">
+    <div class="containerFormulario">
+        <div class="tituloContainer">
+            <h2>{{parqueo}}</h2>
+        </div>
+        <div class="inputContainer">
+            <mat-form-field appearance="outline" class="input">
+                <mat-label>Placa</mat-label>
+                <input [(ngModel)]="formulario.placa" matInput placeholder="Placa">
+            </mat-form-field>
+        </div>
+        <div class="inputContainer">
+            <mat-form-field appearance="outline" class="input">
+                <mat-label>Modelo</mat-label>
+                <input [(ngModel)]="formulario.modelo" matInput placeholder="Modelo">
+            </mat-form-field>
+        </div>
+        <div class="inputContainer">
+            <mat-form-field appearance="outline" class="input">
+                <mat-label>Color</mat-label>
+                <input [(ngModel)]="formulario.color" matInput placeholder="Color">
+            </mat-form-field>
+        </div>
+        <div class="inputContainer">
+            <mat-form-field appearance="outline" class="input">
+                <mat-label>Chofer</mat-label>
+                <input [(ngModel)]="formulario.chofer" matInput placeholder="Chofer">
+            </mat-form-field>
+        </div>
+        <div class="inputContainer">
+            <mat-form-field appearance="outline" class="input">
+                <mat-label>Inicio</mat-label>
+                <input [(ngModel)]="formulario.inicio" matInput placeholder="Inicio" type="time">
+            </mat-form-field>
+        </div>
+        <div class="inputContainer">
+            <mat-form-field appearance="outline" class="input">
+                <mat-label>Final</mat-label>
+                <input [(ngModel)]="formulario.final" matInput placeholder="Final" type="time">
+            </mat-form-field>
+        </div>
+        <div class="inputContainer">
+            <mat-form-field appearance="outline" class="input">
+                <mat-label>Estacionamiento</mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let estacionamiento of estacionamientos" [value]="estacionamiento.id">
+                    {{estacionamiento.tipo}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+        <div class="inputContainer">
+            <button mat-flat-button color="primary">Aceptar</button>
+        </div>
+    </div>
+</div>

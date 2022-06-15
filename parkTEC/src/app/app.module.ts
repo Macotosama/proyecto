@@ -37,6 +37,8 @@ import { EditarautomovilComponent } from './interfaz/funcionario/info-usuario/ed
 import { CrearautomovilComponent } from './interfaz/funcionario/info-usuario/crearautomovil/crearautomovil.component';
 import { EdiitarPerfilComponent } from './interfaz/funcionario/info-usuario/ediitar-perfil/ediitar-perfil.component';
 import { MenuOperarioComponent } from './interfaz/operario/menu-operario/menu-operario.component';
+import { FormularioComponent } from './interfaz/operario/formulario/formulario.component';
+import { OperarioParqueoComponent } from './interfaz/operario/operario-parqueo/operario-parqueo.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,8 @@ import { MenuOperarioComponent } from './interfaz/operario/menu-operario/menu-op
     CrearautomovilComponent,
     EdiitarPerfilComponent,
     MenuOperarioComponent,
+    FormularioComponent,
+    OperarioParqueoComponent,
   ],
   imports: [
     BrowserModule,

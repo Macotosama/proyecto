@@ -9,6 +9,7 @@ import { MenuAdminComponent } from './interfaz/administrador/menu-admin/menu-adm
 import { ParqueosComponent } from './interfaz/administrador/parqueos/parqueos.component';
 import { EditarUsuarioComponent } from './interfaz/administrador/editar-usuario/editar-usuario.component';
 import { MenuOperarioComponent } from './interfaz/operario/menu-operario/menu-operario.component';
+import { FormularioComponent } from './interfaz/operario/formulario/formulario.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'menuAdmin', component: MenuAdminComponent },
   { path: 'parqueos', component: ParqueosComponent },
   { path: 'editUsuario', component: EditarUsuarioComponent },
-  { path: 'menuOperario', component: MenuOperarioComponent},
+  { path: 'menuOperario', component: MenuOperarioComponent },
+  { path: 'formulario', component: FormularioComponent },
 ];
 
 @NgModule({
