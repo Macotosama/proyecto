@@ -14,14 +14,15 @@ export class AgregarparqueoComponent implements OnInit {
     id: '',
     direccion: '',
     espacios: 0,
-    apertura: '',
-    cierre: '',
+    hora_inicio: '',
+    hora_cierre: '',
     nombre: '',
     tipo_parqueo: '',
-    motocicleta: 0,
-    automovil: 0,
-    discapacitado: 0
   }
+  hora_inicio2 = '';
+  motocicleta = 0;
+  automovil = 0;
+  discapacitado = 0;
 
   constructor(public dialogRef: MatDialogRef<AgregarparqueoComponent>,
     private servicio: DTOAdmin, private _snackBar: MatSnackBar) { }
@@ -34,12 +35,13 @@ export class AgregarparqueoComponent implements OnInit {
   }
 
   craer() {
-    if (this.parqueo.direccion != '' && this.parqueo.apertura != '' && this.parqueo.nombre != '' && this.parqueo.tipo_parqueo != ''
-    && this.parqueo.cierre != '') {
-      this.servicio.crearParqueos(this.parqueo).subscribe(_ => {
-        this._snackBar.open('Parqueo creado', 'Aceptar');
-        this.cerrar();
-      })
-    }
+    console.log(this.hora_inicio2);
+    // if (this.parqueo.direccion != '' && this.parqueo.hora_inicio != null && this.parqueo.nombre != '' && this.parqueo.tipo_parqueo != ''
+    // && this.parqueo.hora_cierre != null) {
+    //   this.servicio.crearParqueos(this.parqueo).subscribe(_ => {
+    //     this._snackBar.open('Parqueo creado', 'Aceptar');
+    //     this.cerrar();
+    //   })
+    // }
   }
 }

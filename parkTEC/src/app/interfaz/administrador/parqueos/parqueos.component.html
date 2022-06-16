@@ -36,12 +36,16 @@
             <h2 class="locacion">{{parqueo.nombre}}</h2>
         </div>
         <div class="fecha">
+            <p>Dirección: {{parqueo.direccion}}</p>
+        </div>
+        <div class="fecha">
             <p>Espacios disponibles: {{parqueo.espacios}}</p>
         </div>
-        <div class="placa fecha">
-            <p>Automoviles: {{parqueo.automovil}}</p>
-            <p>Motocicletas: {{parqueo.motocicleta}}</p>
-            <p>Discapacitados: {{parqueo.discapacitado}}</p>
+        <div class="fecha">
+            <p>Hora de apertura: {{parqueo.hora_inicio}}</p>
+        </div>
+        <div class="fecha">
+            <p>Hora de apertura: {{parqueo.hora_cierre}}</p>
         </div>
         <div class="boton">
             <button class="editarParqueo editar" (click)="openEdit(parqueo)" mat-flat-button>

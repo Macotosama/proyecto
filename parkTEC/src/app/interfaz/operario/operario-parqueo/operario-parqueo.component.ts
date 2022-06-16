@@ -11,13 +11,10 @@ export class OperarioParqueoComponent implements OnInit {
     id: '',
     direccion: '',
     espacios: 0,
-    apertura: '',
-    cierre: '',
+    hora_inicio: '',
+    hora_cierre: '',
     nombre: '',
     tipo_parqueo: '',
-    motocicleta: 0,
-    automovil: 0,
-    discapacitado: 0,
   };
   
   constructor() { }

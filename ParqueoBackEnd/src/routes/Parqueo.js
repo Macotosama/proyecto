@@ -91,7 +91,7 @@ router.put('/edit-parqueo', async (req, res) => {
 //Obtiene todos los parqueos - Premiun
 router.get('/parqueos', async(req, res) => {
     try {
-        const query = await db.collection('parqueo').get();
+        const query = await db.collection('Parqueo').get();
         const docs = query.docs;
         console.log(docs)
         const response = docs.map((doc)=>({

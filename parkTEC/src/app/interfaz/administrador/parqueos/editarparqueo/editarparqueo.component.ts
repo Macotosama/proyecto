@@ -14,14 +14,15 @@ export class EditarparqueoComponent implements OnInit {
     id: '',
     direccion: '',
     espacios: 0,
-    apertura: '',
-    cierre: '',
+    hora_inicio: '',
+    hora_cierre: '',
     nombre: '',
     tipo_parqueo: '',
-    motocicleta: 0,
-    automovil: 0,
-    discapacitado: 0
   }
+
+  motocicleta = 0;
+  automovil = 0;
+  discapacitado = 0;
 
   constructor(public dialogRef: MatDialogRef<EditarparqueoComponent>,
     private servicio: DTOAdmin, @Inject(MAT_DIALOG_DATA) public data: Parqueos,
@@ -37,8 +38,8 @@ export class EditarparqueoComponent implements OnInit {
   }
 
   editar() {
-    if (this.parqueo.direccion != '' && this.parqueo.apertura != '' && this.parqueo.nombre != '' && this.parqueo.tipo_parqueo != ''
-    && this.parqueo.cierre != '') {
+    if (this.parqueo.direccion != '' && this.parqueo.hora_inicio != null && this.parqueo.nombre != '' && this.parqueo.tipo_parqueo != ''
+    && this.parqueo.hora_cierre != null) {
       this.servicio.editarParqueos(this.parqueo).subscribe(_ => {
         this._snackBar.open('Datos actualizados', 'Aceptar');
         this.cerrar();

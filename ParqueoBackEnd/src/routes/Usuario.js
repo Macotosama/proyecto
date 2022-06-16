@@ -11,7 +11,7 @@ router.get('/buscar-estacionamientos/:id', async (req, res) => {
         
         const querySnapShot = await query.get();
         const docs = querySnapShot.docs;
-        const response = docs   .map((doc)=>({
+        const response = docs.map((doc)=>({
             id: doc.id,
             ...doc.data(),
         }));
@@ -48,7 +48,7 @@ router.get('/buscar-horario/:id', async (req, res) => {
 router.post('/crear-vehiculo', async (req, res) => {
     try {
         console.log(req.body)
-        const {anno,color,modelo,placa,tipo_transporte, usuario} = req.body
+        const {anno, color, modelo, placa, tipo_transporte, usuario} = req.body
         const doc = await db.collection('vehiculo').add({
             anno,
             color,

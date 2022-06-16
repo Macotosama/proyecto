@@ -25,9 +25,43 @@ export class ParqueosComponent implements OnInit {
 
   getParqueos() {
     this.dto.parqueos().subscribe(res => {
-      console.log(res)
-      this.parqueos = res;
+      var dateInicio:Date;
+      var dateFinal:Date;
+      for (let i = 0; i < res.length; i++) {
+        dateInicio = new Date(res[i].hora_inicio._seconds * 1000);
+        dateFinal = new Date(res[i].hora_cierre._seconds * 1000);
+        this.parqueos.push({
+          id: res[i].id,
+          direccion: res[i].direccion,
+          espacios: res[i].espacios,
+          hora_cierre: this.timeParce(dateFinal),
+          hora_inicio: this.timeParce(dateInicio),
+          nombre: res[i].nombre,
+          tipo_parqueo: res[i].tipo_parqueo,
+        })
+      };
+
+      // this.parqueos = res;
     })
+  }
+
+  timeParce(date:Date) {
+    var hora = date.getHours();
+    var minutos = date.getMinutes();
+    var res = ''
+    if (hora < 10) {
+      res += `0${hora}`;
+    } else {
+      res += `${hora}`;
+    }
+
+    if (minutos < 10) {
+      res += `:0${minutos}`;
+    } else {
+      res += `:${minutos}`;
+    }
+
+    return res;
   }
 
   openEdit(parqueo: Parqueos) {
