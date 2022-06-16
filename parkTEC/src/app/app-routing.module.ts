@@ -10,6 +10,7 @@ import { ParqueosComponent } from './interfaz/administrador/parqueos/parqueos.co
 import { EditarUsuarioComponent } from './interfaz/administrador/editar-usuario/editar-usuario.component';
 import { MenuOperarioComponent } from './interfaz/operario/menu-operario/menu-operario.component';
 import { FormularioComponent } from './interfaz/operario/formulario/formulario.component';
+import { OperarioParqueoComponent } from './interfaz/operario/operario-parqueo/operario-parqueo.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'editUsuario', component: EditarUsuarioComponent },
   { path: 'menuOperario', component: MenuOperarioComponent },
   { path: 'formulario', component: FormularioComponent },
+  { path: 'infoParuqueo', component: OperarioParqueoComponent },
 ];
 
 @NgModule({

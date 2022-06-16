@@ -238,11 +238,4 @@ router.get('/api/Usuario/usu/:Apellido2', async(req,res)=>{
     }
 });
 
-
-
-
-
-
-
-
-    module.exports = router
+ module.exports = router

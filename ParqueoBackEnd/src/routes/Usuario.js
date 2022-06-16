@@ -145,7 +145,6 @@ router.get('/login-user/:user/:contra', async (req, res) => {
 //Eliminar un usuario - Premiun
 router.delete("/delete-usuario/:id", async (req, res) => {
     try {
-        console.log('entro')
         await db.collection("usuario").doc(req.params.id).delete();
         return res.status(204).json();
     } catch (error) {
