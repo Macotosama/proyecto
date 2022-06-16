@@ -14,7 +14,7 @@ export class OperarioParqueoComponent implements OnInit {
     hora_inicio: '',
     hora_cierre: '',
     nombre: '',
-    tipo_parqueo: '',
+    tipo_parqueo: true,
   };
   
   constructor() { }

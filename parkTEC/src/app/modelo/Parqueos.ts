@@ -5,5 +5,5 @@ export interface Parqueos {
     hora_cierre: string,
     hora_inicio: string,
     nombre: string,
-    tipo_parqueo: string,
+    tipo_parqueo: boolean,
 }

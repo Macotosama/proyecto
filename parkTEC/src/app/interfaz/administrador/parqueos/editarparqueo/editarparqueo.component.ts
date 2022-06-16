@@ -17,7 +17,7 @@ export class EditarparqueoComponent implements OnInit {
     hora_inicio: '',
     hora_cierre: '',
     nombre: '',
-    tipo_parqueo: '',
+    tipo_parqueo: true,
   }
 
   motocicleta = 0;
@@ -38,8 +38,8 @@ export class EditarparqueoComponent implements OnInit {
   }
 
   editar() {
-    if (this.parqueo.direccion != '' && this.parqueo.hora_inicio != null && this.parqueo.nombre != '' && this.parqueo.tipo_parqueo != ''
-    && this.parqueo.hora_cierre != null) {
+    if (this.parqueo.direccion != '' && this.parqueo.hora_inicio != '' && this.parqueo.nombre != ''
+    && this.parqueo.hora_cierre != '') {
       this.servicio.editarParqueos(this.parqueo).subscribe(_ => {
         this._snackBar.open('Datos actualizados', 'Aceptar');
         this.cerrar();

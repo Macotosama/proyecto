@@ -47,6 +47,9 @@
         <div class="fecha">
             <p>Hora de apertura: {{parqueo.hora_cierre}}</p>
         </div>
+        <div class="fecha">
+            <p>Tipo de parqueo: {{parqueo.hora_cierre? "TEC" : "Externo"}}</p>
+        </div>
         <div class="boton">
             <button class="editarParqueo editar" (click)="openEdit(parqueo)" mat-flat-button>
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">

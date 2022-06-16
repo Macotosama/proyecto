@@ -25,39 +25,17 @@ router.get('/parqueos-nombre', async(req, res) => {
 router.post('/crear-parqueo', async (req, res) => {
     try {
         console.log(req.body)
-        const {direccion, espacios, horarios, nombre, tipo_parqueo, motocicleta, automovil, discapacitado} = req.body
-        var docs = await db.collection('parqueo').add({
-            direccion,
+        hora = req.body.hora_cierre.split(':')
+        console.log(hora)
+        const {direccion, espacios, hora_cierre, hora_inicio, nombre, tipo_parqueo} = req.body
+        var docs = await db.collection('Parqueo').add({
+            hora_cierre,
+            hora_inicio,
             espacios,
-            horarios,
             nombre,
+            direccion,
             tipo_parqueo,
-            motocicleta,
-            automovil,
-            discapacitado,
         });
-        console.log(docs.id);
-        for (let i = 0; i < motocicleta; i++) {
-            await db.collection('estacionamiento').add({
-                enUso: false,
-                idparqueo: docs.id,
-                tipo: 'motocicleta',
-            });
-        };
-        for (let i = 0; i < automovil; i++) {
-            await db.collection('estacionamiento').add({
-                enUso: false,
-                idparqueo: docs.id,
-                tipo: 'automovil',
-            });
-        };
-        for (let i = 0; i < discapacitado; i++) {
-            await db.collection('estacionamiento').add({
-                enUso: false,
-                idparqueo: docs.id,
-                tipo: 'discapacitado',
-            });
-        };
         return res.status(200).json({status: true});
     } catch (error) {
         console.log(error);
@@ -105,4 +83,5 @@ router.get('/parqueos', async(req, res) => {
     }
 });
 
+function parceTime(hore)
 module.exports = router

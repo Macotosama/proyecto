@@ -17,7 +17,7 @@ export class AgregarparqueoComponent implements OnInit {
     hora_inicio: '',
     hora_cierre: '',
     nombre: '',
-    tipo_parqueo: '',
+    tipo_parqueo: true,
   }
   hora_inicio2 = '';
   motocicleta = 0;
@@ -35,13 +35,12 @@ export class AgregarparqueoComponent implements OnInit {
   }
 
   craer() {
-    console.log(this.hora_inicio2);
-    // if (this.parqueo.direccion != '' && this.parqueo.hora_inicio != null && this.parqueo.nombre != '' && this.parqueo.tipo_parqueo != ''
-    // && this.parqueo.hora_cierre != null) {
-    //   this.servicio.crearParqueos(this.parqueo).subscribe(_ => {
-    //     this._snackBar.open('Parqueo creado', 'Aceptar');
-    //     this.cerrar();
-    //   })
-    // }
+    if (this.parqueo.direccion != '' && this.parqueo.hora_inicio != '' && this.parqueo.nombre != ''
+    && this.parqueo.hora_cierre != '') {
+      this.servicio.crearParqueos(this.parqueo).subscribe(_ => {
+        this._snackBar.open('Parqueo creado', 'Aceptar');
+        this.cerrar();
+      })
+    }
   }
 }
