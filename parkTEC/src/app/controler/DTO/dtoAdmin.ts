@@ -62,4 +62,8 @@ export class DTOAdmin {
     horarios(id: string):Observable<any> {
         return this.control.horarios(id);
     }
+
+    vehiculosId(id: string):Observable<any> {
+        return this.control.vehiculosId(id);
+    }
 }

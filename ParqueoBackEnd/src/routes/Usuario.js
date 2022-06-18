@@ -86,13 +86,15 @@ router.put('/edit-vehiculos', async (req, res) => {
 //Obtener vehiculos de usuario por id
 router.get('/buscar-vehiculo/:id', async (req, res) => {
     try {
-        const docs = db.collection('vehiculo');
-        const query = docs.where('usuario', '==', req.params.id);
+        const docs = db.collection('FuncionarioXVehiculo');
+        const query = docs.where('idfuncionario', '==', req.params.id);
         const result = await (await query.get()).docs;
         const response = result.map((doc)=>({
             id: doc.id,
             ...doc.data(),
         }));
+        console.log('hola');
+        console.log(response);
         return res.status(200).json(response);
     } catch (error) {
         console.log(error);

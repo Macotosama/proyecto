@@ -92,8 +92,6 @@ export class EditarUsuarioComponent implements OnInit {
 
   automoviles = new Array<Vehiculo>();
 
-  borrardespues = 'Hola'
-
   constructor(private _snackBar: MatSnackBar, private dto: DTOAdmin, public dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -149,6 +147,8 @@ export class EditarUsuarioComponent implements OnInit {
                   }
                 }
               })
+              // console.log(res2[0].id)
+              this.getAutomoviles(res2[0].id);
             } else {
               this._snackBar.open('No existe ese funcionario', 'Aceptar');
             }
@@ -198,6 +198,12 @@ export class EditarUsuarioComponent implements OnInit {
     } else {
       this._snackBar.open('Ingrese el usuario que desea eliminar', 'Aceptar');
     }
+  }
+
+  getAutomoviles(id: string) {
+    this.dto.vehiculosId(id).subscribe(res => {
+      this.automoviles = res;
+    })
   }
 
 }

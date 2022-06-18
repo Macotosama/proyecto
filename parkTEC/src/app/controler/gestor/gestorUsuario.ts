@@ -41,6 +41,7 @@ const httpOption = {
     }
 
     vehiculosId(id: string):Observable<any> {
+      console.log(`${this.port}${this.vehiculos}${id}`)
       return this._http.get(`${this.port}${this.vehiculos}${id}`, httpOption);
     }
 
