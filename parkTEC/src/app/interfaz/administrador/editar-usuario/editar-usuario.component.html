@@ -11,7 +11,7 @@
     </div>
 </header>
 <div class="tituloContainer">
-  <h1 class="titulo">Usuario</h1>
+  <h1 class="titulo">Funcionario</h1>
 </div>
 <div class="busqueda">
     <form class="inputBusqueda">
@@ -46,9 +46,6 @@
     <div class="izquierdo lados">
         <div class="nombre item">
             <p>Nombre: {{usuario.nombre}} {{usuario.apellido1}} {{usuario.apellido2}}</p>
-        </div>
-        <div class="puesto item">
-            <p>Puesto: {{usuario.puesto_laboral}}</p>
         </div>
         <div class="correo item">
             <p>Correo institucional: {{usuario.correo_institucional}}</p>
@@ -95,8 +92,8 @@
             <p><b>Lunes</b></p>
         </div>
         <div class="datos">
-            <p>Entrada: {{borrardespues}}</p>
-            <p>Salida: {{borrardespues}}</p>
+            <p>Entrada: {{lunes.horas_entradas}}</p>
+            <p>Salida: {{lunes.horas_salidas}}</p>
         </div>
     </div>
     <div class="dia">
@@ -104,8 +101,8 @@
             <p><b>Martes</b></p>
         </div>
         <div class="datos">
-            <p>Entrada: {{borrardespues}}</p>
-            <p>Salida: {{borrardespues}}</p>
+            <p>Entrada: {{martes.horas_entradas}}</p>
+            <p>Salida: {{martes.horas_salidas}}</p>
         </div>
     </div>
     <div class="dia">
@@ -113,8 +110,8 @@
             <p><b>Miércoles</b></p>
         </div>
         <div class="datos">
-            <p>Entrada: {{borrardespues}}</p>
-            <p>Salida: {{borrardespues}}</p>
+            <p>Entrada: {{miercoles.horas_entradas}}</p>
+            <p>Salida: {{miercoles.horas_salidas}}</p>
         </div>
     </div>
     <div class="dia">
@@ -122,8 +119,8 @@
             <p><b>Jueves</b></p>
         </div>
         <div class="datos">
-            <p>Entrada: {{borrardespues}}</p>
-            <p>Salida: {{borrardespues}}</p>
+            <p>Entrada: {{jueves.horas_entradas}}</p>
+            <p>Salida: {{jueves.horas_salidas}}</p>
         </div>
     </div>
     <div class="dia">
@@ -131,8 +128,8 @@
             <p><b>Viernes</b></p>
         </div>
         <div class="datos">
-            <p>Entrada: {{borrardespues}}</p>
-            <p>Salida: {{borrardespues}}</p>
+            <p>Entrada: {{viernes.horas_entradas}}</p>
+            <p>Salida: {{viernes.horas_salidas}}</p>
         </div>
     </div>
     <div class="dia">
@@ -140,8 +137,8 @@
             <p><b>Sábado</b></p>
         </div>
         <div class="datos">
-            <p>Entrada: {{borrardespues}}</p>
-            <p>Salida: {{borrardespues}}</p>
+            <p>Entrada: {{sabado.horas_entradas}}</p>
+            <p>Salida: {{sabado.horas_salidas}}</p>
         </div>
     </div>
     <div class="dia">
@@ -149,8 +146,8 @@
             <p><b>Domingo</b></p>
         </div>
         <div class="datos">
-            <p>Entrada: {{borrardespues}}</p>
-            <p>Salida: {{borrardespues}}</p>
+            <p>Entrada: {{domingo.horas_entradas}}</p>
+            <p>Salida: {{domingo.horas_salidas}}</p>
         </div>
     </div>
 </div>

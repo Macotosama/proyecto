@@ -6,6 +6,7 @@ import { DialogeditusuarioComponent } from './dialogeditusuario/dialogeditusuari
 import { DialogcrearusuarioComponent } from './dialogcrearusuario/dialogcrearusuario.component';
 import { Usuario } from 'src/app/modelo/Usuario';
 import { Vehiculo } from 'src/app/modelo/Vehiculo';
+import { Horario } from 'src/app/modelo/Horario';
 
 @Component({
   selector: 'app-editar-usuario',
@@ -33,6 +34,62 @@ export class EditarUsuarioComponent implements OnInit {
     id: ''
   }
 
+  lunes: Horario = {
+    dia_semana: '',
+    horas_entradas: '',
+    horas_salidas: '',
+    idusuario: '',
+    id: ''
+  }
+  
+  martes: Horario = {
+    dia_semana: '',
+    horas_entradas: '',
+    horas_salidas: '',
+    idusuario: '',
+    id: ''
+  }
+
+  miercoles: Horario = {
+    dia_semana: '',
+    horas_entradas: '',
+    horas_salidas: '',
+    idusuario: '',
+    id: ''
+  }
+
+  jueves: Horario = {
+    dia_semana: '',
+    horas_entradas: '',
+    horas_salidas: '',
+    idusuario: '',
+    id: ''
+  }
+
+  viernes: Horario = {
+    dia_semana: '',
+    horas_entradas: '',
+    horas_salidas: '',
+    idusuario: '',
+    id: ''
+  }
+
+  sabado: Horario = {
+    dia_semana: '',
+    horas_entradas: '',
+    horas_salidas: '',
+    idusuario: '',
+    id: ''
+  }
+
+  domingo: Horario = {
+    dia_semana: '',
+    horas_entradas: '',
+    horas_salidas: '',
+    idusuario: '',
+    id: ''
+  }
+
   automoviles = new Array<Vehiculo>();
 
   borrardespues = 'Hola'
@@ -47,26 +104,82 @@ export class EditarUsuarioComponent implements OnInit {
       this.dto.buscarUsuario(this.nombre, this.apellido1, this.apellido2).subscribe(res  => {
         if (res.estatus != {}) {
           res = res[0];
-          this.usuario.apellido1 = res.apellido1;
-          this.usuario.apellido2 = res.apellido2;
-          this.usuario.cedula = res.cedula;
-          this.usuario.contrasena = res.contrasena;
-          this.usuario.discapacidad = res.discapacidad;
-          this.usuario.email = res.email
-          this.usuario.departamento = res.departamento;
-          this.usuario.jefe = res.jefe;
-          this.usuario.nombre = res.nombre;
-          this.usuario.puesto_laboral = res.puesto_laboral;
-          this.usuario.tipo_usuario = res.tipo_usuario;
-          this.usuario.correo_institucional = res.correo_institucional;
-          this.usuario.id = res.Id;
+          this.dto.busquedaFuncionario(res.id).subscribe(res2 => {
+            console.log(res)
+            console.log(res2)
+            if (res2.length != 0) {
+              this.usuario.apellido1 = res.apellido1;
+              this.usuario.apellido2 = res.apellido2;
+              this.usuario.cedula = res.cedula;
+              this.usuario.contrasena = res.contrasena;
+              this.usuario.discapacidad = res2[0].discapacidad;
+              this.usuario.email = res.email
+              this.usuario.departamento = res2[0].departamento;
+              this.usuario.jefe = res2[0].jefe;
+              this.usuario.nombre = res.nombre;
+              this.usuario.puesto_laboral = res2[0].puesto_laboral;
+              this.usuario.tipo_usuario = res.tipo_usuario;
+              this.usuario.correo_institucional = res.correo_institucional;
+              this.usuario.id = res.Id;
+
+              this.dto.horarios(res2[0].id).subscribe(res3 => {
+                console.log(res3)
+                for (let i = 0; i < res3.length; i++) {
+                  var temp = {
+                    dia_semana: res3[i].dia_semana,
+                    horas_entradas: this.parceTime(res3[i].hora_entrada._seconds),
+                    horas_salidas: this.parceTime(res3[i].hora_salida._seconds),
+                    idusuario: res3[i].idusuario,
+                    id: res3[i].id,
+                  };
+                  if (res3[i].dia_semana == 'Lunes') {
+                    this.lunes = temp;
+                  } else if (res3[i].dia_semana == 'Martes') {
+                    this.martes = temp;
+                  } else if (res3[i].dia_semana == 'Miércoles') {
+                    this.miercoles = temp;
+                  } else if (res3[i].dia_semana == 'Jueves') {
+                    this.jueves = temp;
+                  } else if (res3[i].dia_semana == 'Viernes') {
+                    this.viernes = temp;
+                  } else if (res3[i].dia_semana == 'Sábado') {
+                    this.sabado = temp;
+                  } else {
+                    this.domingo = temp;
+                  }
+                }
+              })
+            } else {
+              this._snackBar.open('No existe ese funcionario', 'Aceptar');
+            }
+          })
+
         } else {
-          this._snackBar.open('Correo electrónico o contraseña equivocados', 'Aceptar');
+          this._snackBar.open('No existe ese funcionario', 'Aceptar');
         }
       })
     } else {
       this._snackBar.open('Ingrese los datos solicitados', 'Aceptar');
     }
+  }
+
+  parceTime(secundos: number) {
+    var date = new Date(secundos * 1000);
+    var hora = date.getHours();
+    var minutos = date.getMinutes();
+    var res = ''
+    if (hora < 10) {
+      res += `0${hora}`;
+    } else {
+      res += `${hora}`;
+    }
+
+    if (minutos < 10) {
+      res += `:0${minutos}`;
+    } else {
+      res += `:${minutos}`;
+    }
+    return res;
   }
 
   openEdit() {

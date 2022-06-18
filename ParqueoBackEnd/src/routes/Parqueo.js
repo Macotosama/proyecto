@@ -52,7 +52,7 @@ router.get('/parqueos-nombre/:nombre', async(req, res) => {
         const docs = query.docs;
         console.log(docs)
         const response = docs.map((doc)=>({
-            Id: doc.id,
+            id: doc.id,
             ...doc.data(),
         }));
         return res.status(200).json(response);

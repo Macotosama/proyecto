@@ -54,4 +54,12 @@ export class DTOAdmin {
     parqueoPorNombre(nombre: string):Observable<any> {
         return this.control.parqueoPorNombre(nombre);
     }
+
+    busquedaFuncionario(id: string):Observable<any> {
+        return this.control.busquedaFuncionario(id);
+    }
+
+    horarios(id: string):Observable<any> {
+        return this.control.horarios(id);
+    }
 }

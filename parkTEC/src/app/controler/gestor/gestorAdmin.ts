@@ -28,7 +28,9 @@ const httpOption = {
     parqueocrearad = 'parqueo/crear-parqueo';
     estacionamientosParqueo = 'parqueo/estacionamientos/';
     editaEstacionamientos = 'parqueo/edit-estacionamientos';
-    poqueoPorNombre = 'parqueo/parqueos-nombre/'
+    poqueoPorNombre = 'parqueo/parqueos-nombre/';
+    buscarFuncionario = 'user/buscar-funcionario/';
+    horariosFuncionario = 'user/buscar-horario/';
 
     constructor(private _http: HttpClient) {}
 
@@ -75,5 +77,13 @@ const httpOption = {
 
     parqueoPorNombre(nombre: string):Observable<any> {
       return this._http.get(`${this.port}${this.poqueoPorNombre}${nombre}`, httpOption);
+    }
+
+    busquedaFuncionario(id: string):Observable<any> {
+      return this._http.get(`${this.port}${this.buscarFuncionario}${id}`, httpOption);
+    }
+
+    horarios(id: string):Observable<any> {
+      return this._http.get(`${this.port}${this.horariosFuncionario}${id}`, httpOption);
     }
   }

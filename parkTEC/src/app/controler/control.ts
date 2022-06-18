@@ -88,4 +88,12 @@ export class Control {
     parqueoPorNombre(nombre: string):Observable<any> {
         return this.gestorAdmin.parqueoPorNombre(nombre);
     }
+
+    busquedaFuncionario(id: string):Observable<any> {
+        return this.gestorAdmin.busquedaFuncionario(id);
+    }
+
+    horarios(id: string):Observable<any> {
+        return this.gestorAdmin.horarios(id);
+    }
 }
