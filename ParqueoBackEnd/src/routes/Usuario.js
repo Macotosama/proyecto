@@ -86,6 +86,7 @@ router.put('/edit-vehiculos', async (req, res) => {
 //Obtener vehiculos de usuario por id
 router.get('/buscar-vehiculo/:id', async (req, res) => {
     try {
+        console.log('adios')
         const docs = db.collection('FuncionarioXVehiculo');
         const query = docs.where('idfuncionario', '==', req.params.id);
         const result = await (await query.get()).docs;

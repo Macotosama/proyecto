@@ -202,6 +202,7 @@ export class EditarUsuarioComponent implements OnInit {
 
   getAutomoviles(id: string) {
     this.dto.vehiculosId(id).subscribe(res => {
+      console.log(res)
       this.automoviles = res;
     })
   }
