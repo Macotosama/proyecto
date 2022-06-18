@@ -3,6 +3,7 @@ import { DTOAdmin } from 'src/app/controler/DTO/dtoAdmin';
 import { Parqueos } from 'src/app/modelo/Parqueos';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Estacionamiento } from 'src/app/modelo/Estacionamiento';
 
 @Component({
   selector: 'app-editarparqueo',
@@ -20,6 +21,8 @@ export class EditarparqueoComponent implements OnInit {
     tipo_parqueo: true,
   }
 
+  estacionamientos: Array<Estacionamiento> = new Array<Estacionamiento>();
+
   motocicleta = 0;
   automovil = 0;
   discapacitado = 0;
@@ -28,6 +31,7 @@ export class EditarparqueoComponent implements OnInit {
     private servicio: DTOAdmin, @Inject(MAT_DIALOG_DATA) public data: Parqueos,
     private _snackBar: MatSnackBar) { 
       this.parqueo = data;
+      this.getEstacionatos();
     }
 
   ngOnInit(): void {
@@ -41,10 +45,18 @@ export class EditarparqueoComponent implements OnInit {
     if (this.parqueo.direccion != '' && this.parqueo.hora_inicio != '' && this.parqueo.nombre != ''
     && this.parqueo.hora_cierre != '') {
       this.servicio.editarParqueos(this.parqueo).subscribe(_ => {
+        this.servicio.editarEstacionamientos(this.estacionamientos).subscribe(_ => {});
         this._snackBar.open('Datos actualizados', 'Aceptar');
         this.cerrar();
-      })
+      });
     }
+  }
+
+  getEstacionatos() {
+    console.log(this.parqueo.id)
+    this.servicio.obtnerEstacionemientos(this.parqueo.id).subscribe(res => {
+      this.estacionamientos = res;
+    })
   }
 
 }

@@ -1,63 +1,67 @@
 <div class="container">
-    <div class="inputContainer">
-        <mat-form-field appearance="outline" class="input">
-            <mat-label>Nombre</mat-label>
-            <input [(ngModel)]="parqueo.nombre" matInput placeholder="Nombre">
-        </mat-form-field>
+    <div class="lado izquierdo">
+        <div>
+            <h3>Parqueo</h3>
+        </div>
+        <div class="inputContainer">
+            <mat-form-field appearance="outline" class="input">
+                <mat-label>Nombre</mat-label>
+                <input [(ngModel)]="parqueo.nombre" matInput placeholder="Nombre">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline" class="input">
+                <mat-label>Dirección</mat-label>
+                <input [(ngModel)]="parqueo.direccion" matInput placeholder="Dirección">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline" class="input">
+                <mat-label>Hora de apertura</mat-label>
+                <input [(ngModel)]="parqueo.hora_inicio" matInput placeholder="Apertura" type="time">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline" class="input">
+                <mat-label>Hora de cierre</mat-label>
+                <input [(ngModel)]="parqueo.hora_cierre" matInput placeholder="Cierre" type="time">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline" class="input">
+                <mat-label>Tipo de parqueo</mat-label>
+                <mat-select [(ngModel)]="parqueo.tipo_parqueo">
+                  <mat-option value=true>TEC</mat-option>
+                  <mat-option value=false>Contratista</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline" class="input">
+                <mat-label>Espacios</mat-label>
+                <input [(ngModel)]="parqueo.espacios" matInput placeholder="Espacios" type="number" disabled>
+            </mat-form-field>
+        </div>
+        <div class="botones">
+            <button class="boton aceptar" (click)="editar()"><span>Aceptar</span> </button>
+            <button class="boton cancelar" (click)="cerrar()"><span>Cancelar</span></button>
+        </div>
     </div>
-    <div>
-        <mat-form-field appearance="outline" class="input">
-            <mat-label>Dirección</mat-label>
-            <input [(ngModel)]="parqueo.direccion" matInput placeholder="Dirección">
-        </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field appearance="outline" class="input">
-            <mat-label>Hora de apertura</mat-label>
-            <input [(ngModel)]="parqueo.hora_inicio" matInput placeholder="Apertura" type="time">
-        </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field appearance="outline" class="input">
-            <mat-label>Hora de cierre</mat-label>
-            <input [(ngModel)]="parqueo.hora_cierre" matInput placeholder="Cierre" type="time">
-        </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field appearance="outline" class="input">
-            <mat-label>Tipo de parqueo</mat-label>
-            <mat-select [(ngModel)]="parqueo.tipo_parqueo">
-              <mat-option value="tec">TEC</mat-option>
-              <mat-option value="contratista">Contratista</mat-option>
-            </mat-select>
-          </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field appearance="outline" class="input">
-            <mat-label>Espacios</mat-label>
-            <input [(ngModel)]="parqueo.espacios" matInput placeholder="Espacios">
-        </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field appearance="outline" class="input">
-            <mat-label>Automovil</mat-label>
-            <input [(ngModel)]="automovil" matInput placeholder="Automovil" type="number">
-        </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field appearance="outline" class="input">
-            <mat-label>Jefes</mat-label>
-            <input [(ngModel)]="motocicleta" matInput placeholder="Jefes" type="number">
-        </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field appearance="outline" class="input">
-            <mat-label>Discapacitados</mat-label>
-            <input [(ngModel)]="discapacitado" matInput placeholder="Discapacitados" type="number">
-        </mat-form-field>
-    </div>
-    <div class="botones">
-        <button class="boton aceptar" (click)="editar()"><span>Aceptar</span> </button>
-        <button class="boton cancelar" (click)="cerrar()"><span>Cancelar</span></button>
+    <div class="lado derecha">
+        <div>
+            <h3>Estacionamientos</h3>
+        </div>
+        <div class="estacionamiento" *ngFor="let estacionamiento of estacionamientos">
+            <mat-form-field appearance="outline" class="input">
+                <mat-label>Tipo de estacionamiento</mat-label>
+                <mat-select [(ngModel)]="estacionamiento.tipo">
+                  <mat-option value="jefatura">Jefatura</mat-option>
+                  <mat-option value="invitado">Invitado</mat-option>
+                  <mat-option value="oficial">Vehiculo Oficial</mat-option>
+                  <mat-option value="funcionario">Funcionario</mat-option>
+                  <mat-option value="discapacitado">Discapacitado</mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
     </div>
 </div>

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Control } from '../control';
 import { Observable } from 'rxjs';
+import { Estacionamiento } from 'src/app/modelo/Estacionamiento';
 
 @Injectable({
     providedIn: 'root'
@@ -40,5 +41,17 @@ export class DTOAdmin {
 
     crearParqueos(paruqeo: any) :Observable<any> {
         return this.control.crearParqueos(paruqeo);
+    }
+
+    obtnerEstacionemientos(id: string):Observable<any> {
+        return this.control.obtnerEstacionemientos(id);
+    }
+
+    editarEstacionamientos(esta: Array<Estacionamiento>):Observable<any> {
+        return this.control.editarEstacionamientos(esta);
+    }
+
+    parqueoPorNombre(nombre: string):Observable<any> {
+        return this.control.parqueoPorNombre(nombre);
     }
 }

@@ -14,7 +14,7 @@ import { AgregarparqueoComponent } from './agregarparqueo/agregarparqueo.compone
 })
 export class ParqueosComponent implements OnInit {
   parqueos = new Array<Parqueos>() ;
-
+  parqueo = '';
   constructor(private _snackBar: MatSnackBar, private dto: DTOAdmin, public dialog: MatDialog) { }
 
 
@@ -66,7 +66,7 @@ export class ParqueosComponent implements OnInit {
 
   openEdit(parqueo: Parqueos) {
     this.dialog.open(EditarparqueoComponent, {
-      width: '500px', height: '780px', data:parqueo});
+      width: '1000px', height: '900px', data:parqueo});
   }
 
   openCreate() {
@@ -74,4 +74,26 @@ export class ParqueosComponent implements OnInit {
       width: '500px', height: '780px'});
   }
 
+  buscarParqueo() {
+    if (this.parqueo != '') {
+      this.dto.parqueoPorNombre(this.parqueo).subscribe(res => {
+        this.parqueos = new Array<Parqueos>();
+        var dateInicio:Date;
+        var dateFinal:Date;
+        for (let i = 0; i < res.length; i++) {
+          dateInicio = new Date(res[i].hora_inicio._seconds * 1000);
+          dateFinal = new Date(res[i].hora_cierre._seconds * 1000);
+          this.parqueos.push({
+            id: res[i].id,
+            direccion: res[i].direccion,
+            espacios: res[i].espacios,
+            hora_cierre: this.timeParce(dateFinal),
+            hora_inicio: this.timeParce(dateInicio),
+            nombre: res[i].nombre,
+            tipo_parqueo: res[i].tipo_parqueo,
+          })
+        };
+      })
+    }
+  }
 }

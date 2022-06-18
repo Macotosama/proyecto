@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { GestorAdmin } from "./gestor/gestorAdmin";
 import { Observable } from 'rxjs';
 import { GestorUsuario } from './gestor/gestorUsuario';
+import { Estacionamiento } from '../modelo/Estacionamiento';
 
 @Injectable({
     providedIn: 'root'
@@ -74,5 +75,17 @@ export class Control {
 
     estacionaBuscar(id: string):Observable<any> {
         return this.gestorUsuario.estacionaBuscar(id);
+    }
+
+    obtnerEstacionemientos(id: string):Observable<any> {
+        return this.gestorAdmin.obtnerEstacionemientos(id);
+    }
+
+    editarEstacionamientos(esta: Array<Estacionamiento>):Observable<any> {
+        return this.gestorAdmin.editarEstacionamientos(esta);
+    }
+
+    parqueoPorNombre(nombre: string):Observable<any> {
+        return this.gestorAdmin.parqueoPorNombre(nombre);
     }
 }

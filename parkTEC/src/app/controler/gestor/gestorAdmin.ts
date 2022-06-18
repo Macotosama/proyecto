@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Parqueos } from 'src/app/modelo/Parqueos';
 import { Usuario } from 'src/app/modelo/Usuario';
 import { Vehiculo } from 'src/app/modelo/Vehiculo';
+import { Estacionamiento } from 'src/app/modelo/Estacionamiento';
 
 const httpOption = {
     headers: new HttpHeaders({
@@ -25,6 +26,9 @@ const httpOption = {
     parqueosad = 'parqueo/parqueos';
     parqueoeditad = 'parqueo/edit-parqueo';
     parqueocrearad = 'parqueo/crear-parqueo';
+    estacionamientosParqueo = 'parqueo/estacionamientos/';
+    editaEstacionamientos = 'parqueo/edit-estacionamientos';
+    poqueoPorNombre = 'parqueo/parqueos-nombre/'
 
     constructor(private _http: HttpClient) {}
 
@@ -59,5 +63,17 @@ const httpOption = {
 
     crearParqueos(paruqeo: any) :Observable<any> {
       return this._http.post(`${this.port}${this.parqueocrearad}`, paruqeo, httpOption);
+    }
+
+    obtnerEstacionemientos(id: string):Observable<any> {
+      return this._http.get(`${this.port}${this.estacionamientosParqueo}${id}`, httpOption);
+    }
+
+    editarEstacionamientos(esta: Array<Estacionamiento>):Observable<any> {
+      return this._http.put(`${this.port}${this.editaEstacionamientos}`, esta, httpOption);
+    }
+
+    parqueoPorNombre(nombre: string):Observable<any> {
+      return this._http.get(`${this.port}${this.poqueoPorNombre}${nombre}`, httpOption);
     }
   }

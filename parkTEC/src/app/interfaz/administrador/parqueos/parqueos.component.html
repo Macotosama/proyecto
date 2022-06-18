@@ -18,8 +18,8 @@
         <form class="inputBusqueda">
             <mat-form-field class="forfielinput" appearance="outline">
               <mat-label>Nombre</mat-label>
-              <input matInput placeholder="Ex. Campus">
-              <button class="buscarParqueo" matSuffix mat-icon-button>
+              <input [(ngModel)]="parqueo" matInput placeholder="Parqueo" name="parqueo">
+              <button class="buscarParqueo" matSuffix mat-icon-button (click)="buscarParqueo()">
                 <mat-icon>search</mat-icon>
                </button>
             </mat-form-field>
