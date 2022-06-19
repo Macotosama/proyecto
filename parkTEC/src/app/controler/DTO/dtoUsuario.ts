@@ -49,4 +49,8 @@ export class DTOUsuario {
     editarHorarios(horarios: any):Observable<any> {
         return this.control.editarHorarios(horarios);
     }
+
+    parqueoPorNombre(nombre: string):Observable<any> {
+        return this.control.parqueoPorNombre(nombre);
+    }
 }

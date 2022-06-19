@@ -65,7 +65,7 @@ router.get('/parqueos-nombre/:nombre', async(req, res) => {
 //Solo nombre de estacionamientos - Premiun
 router.get('/parqueos-nombre', async(req, res) => {
     try {
-        const query = await db.collection('parqueo').get();
+        const query = await db.collection('Parqueo').get();
         const docs = query.docs;
         console.log(docs)
         const response = docs.map((doc)=>({

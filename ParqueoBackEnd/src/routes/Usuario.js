@@ -13,7 +13,7 @@ function parceTime(hora) {
 //Obtener todos los estacionamientos de un parqueo
 router.get('/buscar-estacionamientos/:id', async (req, res) => {
     try {
-        const adminS = db.collection("estacionamiento");
+        const adminS = db.collection("Estacionamiento");
         const query = adminS.where("idparqueo", "==", ""+req.params.id);
         
         const querySnapShot = await query.get();
