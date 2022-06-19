@@ -2,31 +2,40 @@
     <div class="inputContainer">
         <mat-form-field appearance="outline" class="input">
             <mat-label>Placa</mat-label>
-            <input [(ngModel)]="automovil.placa" matInput placeholder="Placeholder">
+            <input [(ngModel)]="automovil.placa" matInput placeholder="0000s" required>
         </mat-form-field>
     </div>
     <div>
         <mat-form-field appearance="outline" class="input">
             <mat-label>Modelo</mat-label>
-            <input [(ngModel)]="automovil.modelo" matInput placeholder="Placeholder">
+            <input [(ngModel)]="automovil.modelo" matInput placeholder="Pele" required>
         </mat-form-field>
     </div>
     <div>
         <mat-form-field appearance="outline" class="input">
             <mat-label>Color</mat-label>
-            <input [(ngModel)]="automovil.color" matInput placeholder="Placeholder">
+            <input [(ngModel)]="automovil.color" matInput placeholder="Blanco" required>
         </mat-form-field>
     </div>
     <div>
         <mat-form-field appearance="outline" class="input">
+            <mat-label>Cars</mat-label>
+            <select matNativeControl required [(ngModel)]="automovil.tipo_transporte">
+              <option value="Automovil">Automovil</option>
+              <option value="Motocileta">Motocileta</option>
+              <option value="Pickup">Pickup</option>
+            </select>
+        </mat-form-field>
+
+        <!-- <mat-form-field appearance="outline" class="input">
             <mat-label>Tipo de transporte</mat-label>
             <input [(ngModel)]="automovil.tipo_transporte" matInput placeholder="Placeholder">
-        </mat-form-field>
+        </mat-form-field> -->
     </div>
     <div>
         <mat-form-field appearance="outline" class="input">
             <mat-label>Año</mat-label>
-            <input [(ngModel)]="automovil.anno" matInput placeholder="Placeholder">
+            <input [(ngModel)]="automovil.anno" matInput placeholder="2000" required>
         </mat-form-field>
     </div>
     <div class="botones">

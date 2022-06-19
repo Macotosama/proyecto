@@ -111,14 +111,18 @@ router.post('/crear-vehiculo', async (req, res) => {
     try {
         console.log(req.body)
         const {anno, color, modelo, placa, tipo_transporte, usuario} = req.body
-        const doc = await db.collection('vehiculo').add({
+        const doc = await db.collection('Vehiculo').add({
             anno,
             color,
             modelo,
             placa,
             tipo_transporte,
-            usuario
         });
+
+        await db.collection('FuncionarioXVehiculo').add ({
+            idfuncionario: usuario,
+            placa: placa
+        })
         return res.status(200).json({status: true});
     } catch (error) {
         console.log(error);

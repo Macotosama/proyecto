@@ -190,7 +190,7 @@ export class InfoUsuarioComponent implements OnInit {
 
   openCreate() {
     this.dialog.open(CrearautomovilComponent, {
-      width: '500px', height: '700px'});
+      width: '500px', height: '700px', data: this.perfil.idFuncionario});
   }
 
 }
