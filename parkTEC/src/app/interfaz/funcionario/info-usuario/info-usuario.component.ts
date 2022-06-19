@@ -105,14 +105,12 @@ export class InfoUsuarioComponent implements OnInit {
 
   getAutomoviles(id: string) {
     this.dto2.vehiculosId(id).subscribe(res => {
-      console.log(res)
       this.automoviles = res;
     })
   }
 
   getUsuario() {
     this.dtoU.busquedaId(this.cookieService.get("funcionario")).subscribe(res => {
-      console.log(res)
       this.dto2.busquedaFuncionario(res.id).subscribe(res2 => {
         this.perfil.idFuncionario = res2[0].id;
         this.perfil.usuario = {
@@ -131,8 +129,6 @@ export class InfoUsuarioComponent implements OnInit {
           id: res.id,
         }
         this.dto2.horarios(res2[0].id).subscribe(res3 => {
-          console.log('horarios')
-          console.log(res3)
           for (let i = 0; i < res3.length; i++) {
             var temp = {
               dia_semana: res3[i].dia_semana,
@@ -157,7 +153,6 @@ export class InfoUsuarioComponent implements OnInit {
               this.perfil.horarios.domingo = temp;
             }
           }
-          console.log(this.perfil.horarios)
         })
         this.getAutomoviles(res2[0].id);
       })

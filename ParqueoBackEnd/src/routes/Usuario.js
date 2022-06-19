@@ -33,8 +33,7 @@ router.get('/buscar-estacionamientos/:id', async (req, res) => {
 //Edita los horarios de un funcionario
 router.put('/editar-horarios', async (req, res) => {
     try {
-        console.log('editar horarios2')
-        console.log(req.body.lunes.horas_entradas);
+        console.log(req.body);
         const adminS = db.collection("Horario");
 
         var a = {
@@ -79,17 +78,6 @@ router.put('/editar-horarios', async (req, res) => {
             hora_cierre: admin.firestore.Timestamp.fromMillis( parceTime(req.body.domingo.horas_salidas) ),
         };
         await adminS.doc(req.body.domingo.id).update(a);
-        // const adminS = db.collection("Horario").doc(req.body);
-        // const query = adminS.where("idfuncionario", "==", ""+req.params.id);
-        
-        // const querySnapShot = await query.get();
-        // const docs = querySnapShot.docs;
-
-        // const response = docs.map((doc)=>({
-        //     Id: doc.id,
-        //     ...doc.data(),
-        // }));
-        // console.log(response)
         return res.status(200).json({status:true});
     } catch (error) {
         console.log(error);
