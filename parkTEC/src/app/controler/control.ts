@@ -96,4 +96,8 @@ export class Control {
     horarios(id: string):Observable<any> {
         return this.gestorAdmin.horarios(id);
     }
+
+    editarHorarios(horarios: any):Observable<any> {
+        return this.gestorUsuario.editarHorarios(horarios);
+    }
 }

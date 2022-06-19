@@ -86,7 +86,6 @@ export class EdiitarPerfilComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<EdiitarPerfilComponent>,
     private servicio: DTOUsuario, @Inject(MAT_DIALOG_DATA) public data: Perfil,
     private _snackBar: MatSnackBar) {
-      console.log(data)
       this.perfil = data;
   }
 
@@ -111,6 +110,7 @@ export class EdiitarPerfilComponent implements OnInit {
         nombre: this.perfil.usuario.nombre,
         correo_institucional: this.perfil.usuario.correo_institucional,
       }
+      this.servicio.editarHorarios(this.perfil.horarios).subscribe(_ => {});
       this.servicio.editarUsuario(temp).subscribe(_ => {
         this._snackBar.open('Datos actualizados', 'Aceptar');
         this.cerrar();

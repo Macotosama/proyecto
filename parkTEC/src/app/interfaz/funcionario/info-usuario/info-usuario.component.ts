@@ -131,14 +131,15 @@ export class InfoUsuarioComponent implements OnInit {
           id: res.id,
         }
         this.dto2.horarios(res2[0].id).subscribe(res3 => {
+          console.log('horarios')
           console.log(res3)
           for (let i = 0; i < res3.length; i++) {
             var temp = {
               dia_semana: res3[i].dia_semana,
               horas_entradas: this.parceTime(res3[i].hora_entrada._seconds),
               horas_salidas: this.parceTime(res3[i].hora_salida._seconds),
-              idusuario: res3[i].idusuario,
-              id: res3[i].id,
+              idusuario: res3[i].idfuncionario,
+              id: res3[i].Id,
             };
             if (res3[i].dia_semana == 'Lunes') {
               this.perfil.horarios.lunes = temp;
@@ -156,6 +157,7 @@ export class InfoUsuarioComponent implements OnInit {
               this.perfil.horarios.domingo = temp;
             }
           }
+          console.log(this.perfil.horarios)
         })
         this.getAutomoviles(res2[0].id);
       })

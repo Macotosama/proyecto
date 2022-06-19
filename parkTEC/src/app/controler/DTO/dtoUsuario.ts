@@ -45,4 +45,8 @@ export class DTOUsuario {
     editarUsuario(usuario: any) :Observable<any> {
         return this.control.editarUsuario(usuario);
     }
+
+    editarHorarios(horarios: any):Observable<any> {
+        return this.control.editarHorarios(horarios);
+    }
 }

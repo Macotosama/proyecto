@@ -1,8 +1,15 @@
 const {Router} = require('express');
 const {db} = require('../firebase');
-
+const admin = require('firebase-admin');//Esta constante es la encargada de proporcionar la 
 const router = Router();
 
+function parceTime(hora) {
+    hora = hora.split(':');
+    date = new Date();
+    date.setHours(hora[0]);
+    date.setMinutes(hora[1]);
+    return date.getTime();
+}
 //Obtener todos los estacionamientos de un parqueo
 router.get('/buscar-estacionamientos/:id', async (req, res) => {
     try {
@@ -17,6 +24,73 @@ router.get('/buscar-estacionamientos/:id', async (req, res) => {
         }));
         console.log(response)
         return res.status(200).json(response);
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send(error)
+    }
+});
+
+//Edita los horarios de un funcionario
+router.put('/editar-horarios', async (req, res) => {
+    try {
+        console.log('editar horarios2')
+        console.log(req.body.lunes.horas_entradas);
+        const adminS = db.collection("Horario");
+
+        var a = {
+            dia_semana: req.body.lunes.dia_semana, 
+            hora_entrada: admin.firestore.Timestamp.fromMillis( parceTime(req.body.lunes.horas_entradas) ), 
+            hora_cierre: admin.firestore.Timestamp.fromMillis( parceTime(req.body.lunes.horas_salidas) ),
+        };
+        await adminS.doc(req.body.lunes.id).update(a);
+        a = {
+            dia_semana: req.body.martes.dia_semana, 
+            hora_entrada: admin.firestore.Timestamp.fromMillis( parceTime(req.body.martes.horas_entradas) ), 
+            hora_cierre: admin.firestore.Timestamp.fromMillis( parceTime(req.body.martes.horas_salidas) ),
+        };
+        await adminS.doc(req.body.martes.id).update(a);
+        a = {
+            dia_semana: req.body.miercoles.dia_semana, 
+            hora_entrada: admin.firestore.Timestamp.fromMillis( parceTime(req.body.miercoles.horas_entradas) ), 
+            hora_cierre: admin.firestore.Timestamp.fromMillis( parceTime(req.body.miercoles.horas_salidas) ),
+        };
+        await adminS.doc(req.body.miercoles.id).update(a);
+        a = {
+            dia_semana: req.body.jueves.dia_semana, 
+            hora_entrada: admin.firestore.Timestamp.fromMillis( parceTime(req.body.jueves.horas_entradas) ), 
+            hora_cierre: admin.firestore.Timestamp.fromMillis( parceTime(req.body.jueves.horas_salidas) ),
+        };
+        await adminS.doc(req.body.jueves.id).update(a);
+        a = {
+            dia_semana: req.body.viernes.dia_semana, 
+            hora_entrada: admin.firestore.Timestamp.fromMillis( parceTime(req.body.viernes.horas_entradas) ), 
+            hora_cierre: admin.firestore.Timestamp.fromMillis( parceTime(req.body.viernes.horas_salidas) ),
+        };
+        await adminS.doc(req.body.viernes.id).update(a);
+        a = {
+            dia_semana: req.body.sabado.dia_semana, 
+            hora_entrada: admin.firestore.Timestamp.fromMillis( parceTime(req.body.sabado.horas_entradas) ), 
+            hora_cierre: admin.firestore.Timestamp.fromMillis( parceTime(req.body.sabado.horas_salidas) ),
+        };
+        await adminS.doc(req.body.sabado.id).update(a);
+        a = {
+            dia_semana: req.body.domingo.dia_semana, 
+            hora_entrada: admin.firestore.Timestamp.fromMillis( parceTime(req.body.domingo.horas_entradas) ), 
+            hora_cierre: admin.firestore.Timestamp.fromMillis( parceTime(req.body.domingo.horas_salidas) ),
+        };
+        await adminS.doc(req.body.domingo.id).update(a);
+        // const adminS = db.collection("Horario").doc(req.body);
+        // const query = adminS.where("idfuncionario", "==", ""+req.params.id);
+        
+        // const querySnapShot = await query.get();
+        // const docs = querySnapShot.docs;
+
+        // const response = docs.map((doc)=>({
+        //     Id: doc.id,
+        //     ...doc.data(),
+        // }));
+        // console.log(response)
+        return res.status(200).json({status:true});
     } catch (error) {
         console.log(error);
         return res.status(500).send(error)

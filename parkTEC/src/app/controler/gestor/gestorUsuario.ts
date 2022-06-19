@@ -25,6 +25,7 @@ const httpOption = {
     crearVehiculo = 'user/crear-vehiculo';
     buscarHorario = 'user/buscar-horario/';
     buscarEstacionamientos = 'user/buscar-estacionamientos/';
+    eidtarHorarios = 'user/editar-horarios';
 
     constructor(private _http: HttpClient) {}
 
@@ -59,5 +60,9 @@ const httpOption = {
 
     estacionaBuscar(id: string):Observable<any> {
       return this._http.get(`${this.port}${this.buscarEstacionamientos}${id}`, httpOption);
+    }
+
+    editarHorarios(horarios: any):Observable<any> {
+      return this._http.put(`${this.port}${this.eidtarHorarios}`, horarios, httpOption)
     }
   }
