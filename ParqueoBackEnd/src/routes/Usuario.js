@@ -131,7 +131,7 @@ router.put('/edit-vehiculos', async (req, res) => {
     try {
         console.log(req.body)
         const {anno,color,modelo,placa,tipo_transporte} = req.body
-        const doc = await db.collection('vehiculo').doc(req.body.id).update({
+        const doc = await db.collection('Vehiculo').doc(req.body.id).update({
             anno,
             color,
             modelo,
@@ -156,8 +156,18 @@ router.get('/buscar-vehiculo/:id', async (req, res) => {
             id: doc.id,
             ...doc.data(),
         }));
-        console.log(response);
-        return res.status(200).json(response);
+        const docs2 = db.collection('Vehiculo');
+        var response2 = [];
+        for (let i = 0; i < response.length; i++) {
+            const result2 = await (await docs2.where('placa', '==', response[i].placa).get()).docs;
+            const temp = result2.map((doc)=>({
+                id: doc.id,
+                ...doc.data(),
+            }));
+            response2.push(temp[0]);
+        }
+        console.log(response2);
+        return res.status(200).json(response2);
     } catch (error) {
         console.log(error);
         return res.status(500).send(error)
