@@ -111,8 +111,6 @@ export class InfoUsuarioComponent implements OnInit {
 
   getUsuario() {
     this.dtoU.busquedaId(this.cookieService.get("funcionario")).subscribe(res => {
-      // res = res[0];
-      console.log(res)
       this.dto2.busquedaFuncionario(res.id).subscribe(res2 => {
         this.perfil.usuario = {
           apellido1: res.apellido1,
@@ -156,7 +154,6 @@ export class InfoUsuarioComponent implements OnInit {
             }
           }
         })
-        // console.log(res2[0].id)
         this.getAutomoviles(res2[0].id);
       })
     });
@@ -195,30 +192,5 @@ export class InfoUsuarioComponent implements OnInit {
     this.dialog.open(CrearautomovilComponent, {
       width: '500px', height: '700px'});
   }
-
-  obtenerHorarios() {
-    this.dtoU.horariosBus(this.cookieService.get('funcionario')).subscribe(res => {
-      console.log(res)
-      console.log('Horarios')
-      for(let i = 0; i < 7; i++) {
-        if (res[i] == 'Lunes') {
-          this.perfil.horarios.lunes = res[i];
-        } else if (res[i] == 'Martes') {
-          this.perfil.horarios.martes = res[i];
-        } else if (res[i] == 'Miércoles') {
-          this.perfil.horarios.miercoles = res[i];
-        } else if (res[i] = 'Jueves') {
-          this.perfil.horarios.jueves = res[i];
-        } else if (res[i] = 'Viernes') {
-          this.perfil.horarios.viernes = res[i];
-        } else if (res[i] = 'Sábado') {
-          this.perfil.horarios.sabado = res[i];
-        } else {
-          this.perfil.horarios.domingo = res[i];
-        }
-      }
-    })
-  }
-  
 
 }
