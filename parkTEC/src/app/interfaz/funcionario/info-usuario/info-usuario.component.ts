@@ -18,6 +18,7 @@ import { DTOAdmin } from 'src/app/controler/DTO/dtoAdmin';
 })
 export class InfoUsuarioComponent implements OnInit {
   perfil: Perfil = {
+    idFuncionario: '',
     horarios: {
       lunes: {
         dia_semana: '',
@@ -111,12 +112,14 @@ export class InfoUsuarioComponent implements OnInit {
 
   getUsuario() {
     this.dtoU.busquedaId(this.cookieService.get("funcionario")).subscribe(res => {
+      console.log(res)
       this.dto2.busquedaFuncionario(res.id).subscribe(res2 => {
+        this.perfil.idFuncionario = res2[0].id;
         this.perfil.usuario = {
           apellido1: res.apellido1,
           apellido2: res.apellido2,
           cedula: res.cedula,
-          contrasena: res.contrasena,
+          contrasena: res.contrasenna,
           discapacidad: res2[0].discapacidad,
           email: res.email,
           departamento: res2[0].departamento,

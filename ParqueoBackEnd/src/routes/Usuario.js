@@ -174,20 +174,14 @@ router.delete("/delete-usuario/:id", async (req, res) => {
 router.put('/edit-usuario', async (req, res) => {
     try {
         console.log(req.body)
-        const {apellido1, apellido2, email, cedula, contrasena, discapacidad,
-            departamento, jefe, nombre, puesto_laboral, tipo_usuario, correo_institucional} = req.body
-        const doc = await db.collection('usuario').doc(req.body.id).update({
+        const {apellido1, apellido2, email, cedula, contrasenna, nombre, correo_institucional} = req.body
+        const doc = await db.collection('Usuario').doc(req.body.id).update({
             apellido1,
             apellido2,
             cedula,
-            contrasena,
-            discapacidad,
+            contrasenna,
             email,
-            departamento,
-            jefe,
             nombre,
-            puesto_laboral,
-            tipo_usuario,
             correo_institucional,
         });
         return res.status(200).json({status: true});

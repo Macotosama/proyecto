@@ -41,4 +41,8 @@ export class DTOUsuario {
     estacionaBuscar(id: string):Observable<any> {
         return this.control.estacionaBuscar(id);
     }
+
+    editarUsuario(usuario: any) :Observable<any> {
+        return this.control.editarUsuario(usuario);
+    }
 }
