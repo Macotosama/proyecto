@@ -20,10 +20,14 @@ export class CrearReservacionComponent implements OnInit {
   arrendar = false;
   fechaActual = new Date();
 
+  discapacidad = true;
+  jefe = true;
+
   constructor(private dtoU: DTOUsuario, private cookieService: CookieService) {
   }
 
   ngOnInit(): void {
+    this.infoFuncion();
     this.parqueosNombre();
     this.getAutomoviles();
   }
@@ -41,8 +45,26 @@ export class CrearReservacionComponent implements OnInit {
   }
 
   estacionaBuscar() {
-    this.dtoU.estacionaBuscar(this.ubicacion).subscribe(res => {
-      this.aparcamientos = res;
+    if (this.jefe) {
+      this.dtoU.estacionaBuscarJefes(this.cookieService.get("funcionario")).subscribe(res => {
+        this.aparcamientos = res;
+      })
+    } else if (this.discapacidad) {
+      this.dtoU.estacionaBuscarDiscapacitado(this.cookieService.get("funcionario")).subscribe(res => {
+        this.aparcamientos = res;
+      })
+    } else {
+      this.dtoU.estacionaBuscarNormal(this.cookieService.get("funcionario")).subscribe(res => {
+        this.aparcamientos = res;
+      })
+    }
+  }
+
+  infoFuncion() {
+    this.dtoU.infoFuncion(this.cookieService.get("funcionario")).subscribe(res => {
+      console.log(res)
+      this.jefe = res[0].jefe;
+      this.discapacidad = res[0].discapacidad;
     })
   }
 

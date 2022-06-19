@@ -13,6 +13,10 @@ export class Control {
     
     constructor(private gestorAdmin: GestorAdmin, private gestorUsuario: GestorUsuario) { }
 
+    infoFuncion(id: string):Observable<any> {
+        return this.gestorUsuario.infoFuncion(id);
+    }
+
     loginAdmin (userAdmin: string, contrasenaAdmin: string):Observable<any> {
         return this.gestorAdmin.loginAdmin(userAdmin, contrasenaAdmin);
     }
@@ -73,8 +77,16 @@ export class Control {
         return this.gestorUsuario.horariosBus(id);
     }
 
-    estacionaBuscar(id: string):Observable<any> {
-        return this.gestorUsuario.estacionaBuscar(id);
+    estacionaBuscarNormal(id: string):Observable<any> {
+        return this.gestorUsuario.estacionaBuscarNormal(id);
+    }
+
+    estacionaBuscarDiscapacitado(id: string):Observable<any> {
+        return this.gestorUsuario.estacionaBuscarDiscapacitado(id);
+    }
+
+    estacionaBuscarJefes(id: string):Observable<any> {
+        return this.gestorUsuario.estacionaBuscarDiscapacitado(id);
     }
 
     obtnerEstacionemientos(id: string):Observable<any> {

@@ -20,14 +20,21 @@ const httpOption = {
     login = 'user/login-user/';
     buscar = 'user/buscar-usuario/';
     parqueoNombre = 'parqueo/parqueos-nombre';
-    vehiculos = 'user/buscar-vehiculo/';
+    vehiculos = 'user/buscar-vehiculo-usuario/';
     editVehiculo = 'user/edit-vehiculos';
     crearVehiculo = 'user/crear-vehiculo';
     buscarHorario = 'user/buscar-horario/';
-    buscarEstacionamientos = 'user/buscar-estacionamientos/';
+    buscarEstacionamientosNorma = 'user/buscar-estacionamientos-normal/';
+    buscarEstacionamientosDisca = 'user/buscar-estacionamientos-discapacitado/';
+    buscarEstacionamientosJefe = 'user/buscar-estacionamientos-jefes/';
     eidtarHorarios = 'user/editar-horarios';
+    infoFuncio = 'user/bucarInfoFuncionario/';
 
     constructor(private _http: HttpClient) {}
+
+    infoFuncion(id: string):Observable<any> {
+      return this._http.get(`${this.port}${this.infoFuncio}${id}`, httpOption)
+    }
 
     loginUsuario(userUsuario: string, contrasenaAUsuario: string):Observable<any> {
         return this._http.get(`${this.port}${this.login}${userUsuario}/${contrasenaAUsuario}`, httpOption);
@@ -58,8 +65,16 @@ const httpOption = {
       return this._http.get(`${this.port}${this.buscarHorario}${id}`, httpOption);
     }
 
-    estacionaBuscar(id: string):Observable<any> {
-      return this._http.get(`${this.port}${this.buscarEstacionamientos}${id}`, httpOption);
+    estacionaBuscarNormal(id: string):Observable<any> {
+      return this._http.get(`${this.port}${this.buscarEstacionamientosNorma}${id}`, httpOption);
+    }
+
+    estacionaBuscarDiscapacitado(id: string):Observable<any> {
+      return this._http.get(`${this.port}${this.buscarEstacionamientosDisca}${id}`, httpOption);
+    }
+
+    estacionaBuscarJefes(id: string):Observable<any> {
+      return this._http.get(`${this.port}${this.buscarEstacionamientosJefe}${id}`, httpOption);
     }
 
     editarHorarios(horarios: any):Observable<any> {

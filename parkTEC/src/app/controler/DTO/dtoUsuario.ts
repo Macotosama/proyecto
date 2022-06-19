@@ -10,6 +10,10 @@ export class DTOUsuario {
 
     constructor(private control: Control) { }
 
+    infoFuncion(id: string):Observable<any> {
+        return this.control.infoFuncion(id);
+    }
+
     loginUsuario (userUusauiro: string, contrasenaUsaurio: string):Observable<any> {
         return this.control.loginUsuario(userUusauiro, contrasenaUsaurio);
     }
@@ -38,11 +42,19 @@ export class DTOUsuario {
         return this.control.horariosBus(id);
     }
 
-    estacionaBuscar(id: string):Observable<any> {
-        return this.control.estacionaBuscar(id);
+    estacionaBuscarNormal(id: string):Observable<any> {
+        return this.control.estacionaBuscarNormal(id);
     }
 
-    editarUsuario(usuario: any) :Observable<any> {
+    estacionaBuscarDiscapacitado(id: string):Observable<any> {
+        return this.control.estacionaBuscarDiscapacitado(id);
+    }
+
+    estacionaBuscarJefes(id: string):Observable<any> {
+        return this.control.estacionaBuscarDiscapacitado(id);
+    }
+
+    editarUsuario(usuario: any):Observable<any> {
         return this.control.editarUsuario(usuario);
     }
 

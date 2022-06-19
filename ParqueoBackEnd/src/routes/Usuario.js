@@ -10,11 +10,71 @@ function parceTime(hora) {
     date.setMinutes(hora[1]);
     return date.getTime();
 }
-//Obtener todos los estacionamientos de un parqueo
-router.get('/buscar-estacionamientos/:id', async (req, res) => {
+
+//Obtener datos funcionario
+router.get('/bucarInfoFuncionario/:id', async (req, res) => {
+    try {
+        const adminS = db.collection("Funcionarios").where("usuario", "==", req.params.id);
+        
+        const querySnapShot = await adminS.get();
+        const docs = querySnapShot.docs;
+        const response = docs.map((doc)=>({
+            id: doc.id,
+            ...doc.data(),
+        }));
+        console.log(response)
+        return res.status(200).json(response);
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send(error)
+    }
+})
+
+//Obtener todos los estacionamientos jefes de un parqueo
+router.get('/buscar-estacionamientos-jefes/:id', async (req, res) => {
     try {
         const adminS = db.collection("Estacionamiento");
-        const query = adminS.where("idparqueo", "==", ""+req.params.id);
+        const query = adminS.where("idparqueo", "==", ""+req.params.id).where("tipo", "==", "jefatura");
+        
+        const querySnapShot = await query.get();
+        const docs = querySnapShot.docs;
+        const response = docs.map((doc)=>({
+            id: doc.id,
+            ...doc.data(),
+        }));
+        console.log(response)
+        return res.status(200).json(response);
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send(error)
+    }
+});
+
+//Obtener todos los estacionamientos discapacitados de un parqueo
+router.get('/buscar-estacionamientos-discapacitado/:id', async (req, res) => {
+    try {
+        const adminS = db.collection("Estacionamiento");
+        const query = adminS.where("idparqueo", "==", ""+req.params.id).where("tipo", "==", "discapacidad");
+        
+        const querySnapShot = await query.get();
+        const docs = querySnapShot.docs;
+        const response = docs.map((doc)=>({
+            id: doc.id,
+            ...doc.data(),
+        }));
+        console.log(response)
+        return res.status(200).json(response);
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send(error)
+    }
+});
+
+//Obtener todos los estacionamientos normales de un parqueo
+router.get('/buscar-estacionamientos-normal/:id', async (req, res) => {
+    try {
+        const adminS = db.collection("Estacionamiento");
+        const query = adminS.where("idparqueo", "==", ""+req.params.id).where("tipo", "==", "jefatura");
         
         const querySnapShot = await query.get();
         const docs = querySnapShot.docs;
@@ -150,9 +210,48 @@ router.put('/edit-vehiculos', async (req, res) => {
 });
 
 //Obtener vehiculos de usuario por id
+router.get('/buscar-vehiculo-usuario/:id', async (req, res) => {
+    try {
+        console.log(req.params.id)
+        const adminFun = db.collection("Funcionarios");
+        const queryFun = adminFun.where("usuario", "==", ""+req.params.id);
+        
+        const querySnapShotFun = await queryFun.get();
+        const docsFun = querySnapShotFun.docs;
+
+        const responseFun = docsFun.map((doc)=>({
+            id: doc.id,
+            ...doc.data(),
+        }));
+        console.log(responseFun)
+        const docs = db.collection('FuncionarioXVehiculo');
+        const query = docs.where('idfuncionario', '==', responseFun[0].id);
+        const result = await (await query.get()).docs;
+        const response = result.map((doc)=>({
+            id: doc.id,
+            ...doc.data(),
+        }));
+        const docs2 = db.collection('Vehiculo');
+        var response2 = [];
+        for (let i = 0; i < response.length; i++) {
+            const result2 = await (await docs2.where('placa', '==', response[i].placa).get()).docs;
+            const temp = result2.map((doc)=>({
+                id: doc.id,
+                ...doc.data(),
+            }));
+            response2.push(temp[0]);
+        }
+        console.log(response2);
+        return res.status(200).json(response2);
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send(error)
+    }
+});
+
+//Obtener vehiculos de usuario por id
 router.get('/buscar-vehiculo/:id', async (req, res) => {
     try {
-        console.log('adios')
         const docs = db.collection('FuncionarioXVehiculo');
         const query = docs.where('idfuncionario', '==', req.params.id);
         const result = await (await query.get()).docs;
