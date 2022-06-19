@@ -28,8 +28,10 @@ export class InicioComponent implements OnInit {
   loguinFuncio () {
     if (this.verificarLogin(this.userFuncio, this.contrasenaFuncio)) {
       this.dtoU.loginUsuario(this.userFuncio, this.contrasenaFuncio).subscribe(res => {
+        console.log(res)
         if (res[0].estatus) {
-          this.cookieService.set('funcionario', res[0].id);
+          this.cookieService.set('funcionario', res[0].idUsuario);
+          this.cookieService.set('nombre', res[0].nombre);
           this.router.navigate(['/menuFuncionario']);
         } else {
           this._snackBar.open('Correo electrónico o contraseña equivocados', 'Aceptar');

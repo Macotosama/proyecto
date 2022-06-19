@@ -9,6 +9,7 @@ import { CrearautomovilComponent } from './crearautomovil/crearautomovil.compone
 import { EdiitarPerfilComponent } from './ediitar-perfil/ediitar-perfil.component';
 import { Horario } from 'src/app/modelo/Horario';
 import { Perfil } from 'src/app/modelo/Perfil';
+import { DTOAdmin } from 'src/app/controler/DTO/dtoAdmin';
 
 @Component({
   selector: 'app-info-usuario',
@@ -86,41 +87,98 @@ export class InfoUsuarioComponent implements OnInit {
     },
   }
 
+  nombre = '';
+
   automoviles = new Array<Vehiculo>();
 
-  constructor(private dtoU: DTOUsuario, private cookieService: CookieService, public dialog: MatDialog) { }
+  constructor(private dtoU: DTOUsuario, private cookieService: CookieService, public dialog: MatDialog, private dto2: DTOAdmin) { }
 
   ngOnInit(): void {
     this.getUsuario();
-    this.getAutomoviles();
-    this.obtenerHorarios();
+    this.nombreFuncionario();
   }
 
-  getAutomoviles() {
-    this.dtoU.vehiculosId(this.cookieService.get("funcionario")).subscribe(res => {
+  nombreFuncionario() {
+    this.nombre = this.cookieService.get('nombre');
+  }
+
+  getAutomoviles(id: string) {
+    this.dto2.vehiculosId(id).subscribe(res => {
+      console.log(res)
       this.automoviles = res;
     })
   }
 
   getUsuario() {
     this.dtoU.busquedaId(this.cookieService.get("funcionario")).subscribe(res => {
+      // res = res[0];
       console.log(res)
-      this.perfil.usuario = {
-        apellido1: res.apellido1,
-        apellido2: res.apellido2,
-        cedula: res.cedula,
-        contrasena: res.contrasena,
-        discapacidad: res.discapacidad,
-        email: res.email,
-        departamento: res.departamento,
-        jefe: res.jefe,
-        nombre: res.nombre,
-        puesto_laboral: res.puesto_laboral,
-        tipo_usuario: res.tipo_usuario,
-        correo_institucional: res.correo_institucional,
-        id: res.id,
-      }
+      this.dto2.busquedaFuncionario(res.id).subscribe(res2 => {
+        this.perfil.usuario = {
+          apellido1: res.apellido1,
+          apellido2: res.apellido2,
+          cedula: res.cedula,
+          contrasena: res.contrasena,
+          discapacidad: res2[0].discapacidad,
+          email: res.email,
+          departamento: res2[0].departamento,
+          jefe: res2[0].jefe,
+          nombre: res.nombre,
+          puesto_laboral: res2[0].puesto_laboral,
+          tipo_usuario: res.tipo_usuario,
+          correo_institucional: res.correo_institucional,
+          id: res.id,
+        }
+        this.dto2.horarios(res2[0].id).subscribe(res3 => {
+          console.log(res3)
+          for (let i = 0; i < res3.length; i++) {
+            var temp = {
+              dia_semana: res3[i].dia_semana,
+              horas_entradas: this.parceTime(res3[i].hora_entrada._seconds),
+              horas_salidas: this.parceTime(res3[i].hora_salida._seconds),
+              idusuario: res3[i].idusuario,
+              id: res3[i].id,
+            };
+            if (res3[i].dia_semana == 'Lunes') {
+              this.perfil.horarios.lunes = temp;
+            } else if (res3[i].dia_semana == 'Martes') {
+              this.perfil.horarios.martes = temp;
+            } else if (res3[i].dia_semana == 'Miércoles') {
+              this.perfil.horarios.miercoles = temp;
+            } else if (res3[i].dia_semana == 'Jueves') {
+              this.perfil.horarios.jueves = temp;
+            } else if (res3[i].dia_semana == 'Viernes') {
+              this.perfil.horarios.viernes = temp;
+            } else if (res3[i].dia_semana == 'Sábado') {
+              this.perfil.horarios.sabado = temp;
+            } else {
+              this.perfil.horarios.domingo = temp;
+            }
+          }
+        })
+        // console.log(res2[0].id)
+        this.getAutomoviles(res2[0].id);
+      })
     });
+  }
+
+  parceTime(secundos: number) {
+    var date = new Date(secundos * 1000);
+    var hora = date.getHours();
+    var minutos = date.getMinutes();
+    var res = ''
+    if (hora < 10) {
+      res += `0${hora}`;
+    } else {
+      res += `${hora}`;
+    }
+
+    if (minutos < 10) {
+      res += `:0${minutos}`;
+    } else {
+      res += `:${minutos}`;
+    }
+    return res;
   }
 
   openEdit(ato: Vehiculo) {
@@ -161,5 +219,6 @@ export class InfoUsuarioComponent implements OnInit {
       }
     })
   }
+  
 
 }

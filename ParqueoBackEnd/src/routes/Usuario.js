@@ -94,7 +94,6 @@ router.get('/buscar-vehiculo/:id', async (req, res) => {
             id: doc.id,
             ...doc.data(),
         }));
-        console.log('hola');
         console.log(response);
         return res.status(200).json(response);
     } catch (error) {
@@ -106,11 +105,14 @@ router.get('/buscar-vehiculo/:id', async (req, res) => {
 //Busqueda por id
 router.get('/buscar-usuario/:id', async (req, res) => {
     try {
-        const docs = await db.collection('usuario').doc(req.params.id).get();
+        
+        const docs = await db.collection("Usuario").doc(req.params.id).get();
         const response ={
             id: docs.id,
             ...docs.data()
         }
+        console.log(response);
+        console.log("haaa perrro")
         return res.status(200).json(response);
     } catch (error) {
         console.log(error);
@@ -118,27 +120,39 @@ router.get('/buscar-usuario/:id', async (req, res) => {
     }
 });
 
-//Login del usuario - Premiun
+//Login del funcionario - Premiun
 router.get('/login-user/:user/:contra', async (req, res) => {
     try{
-        const adminS = db.collection("usuario");
-        const query = adminS.where("tipo_usuario", "==", false).where("contrasena",  "==", ""+req.params.contra).where("correo_institucional",  "==", ""+req.params.user);
+        const adminS = db.collection("Usuario");
+        const query = adminS.where("contrasenna",  "==", ""+req.params.contra).where("correo_institucional",  "==", ""+req.params.user);
         
         const querySnapShot = await query.get();
         const docs = querySnapShot.docs;
 
         const response = docs.map((doc)=>({
-            estatus: true,
-            id: doc.id,
+            Id: doc.id,
             ...doc.data(),
         }));
         console.log(response)
 
         if (response.length != 0) {
-            return res.status(200).json(response);
+            const info = db.collection("Funcionarios");
+            const query2 = info.where("usuario",  "==", ""+ response[0].Id);
+            const querySnapShot2 = await query2.get();
+            const docs2 = querySnapShot2.docs;
+
+            const response2 = docs2.map((doc)=>({
+                Id: doc.id,
+                idUsuario: response[0].Id,
+                nombre: response[0].nombre,
+                estatus: true,
+                ...doc.data(),
+            }));
+
+            return res.status(200).json(response2);
         } else {
             return res.status(200).json({estatus: false});
-        } 
+        }
     }catch{
         console.log(error);
         return res.status(500).send(error)
