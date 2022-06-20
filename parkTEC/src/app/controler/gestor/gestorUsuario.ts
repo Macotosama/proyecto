@@ -30,8 +30,14 @@ const httpOption = {
     eidtarHorarios = 'user/editar-horarios';
     infoFuncio = 'user/bucarInfoFuncionario/';
     guardarReserva = 'user/guardarReservaciones';
+    obtenerReservaciones = 'user/BuscarReservaciones/';
 
     constructor(private _http: HttpClient) {}
+
+    obtenerReservacioness(id: string):Observable<any> {
+      console.log(`${this.port}${this.obtenerReservaciones}${id}`)
+      return this._http.get(`${this.port}${this.obtenerReservaciones}${id}`, httpOption);
+    }
 
     guardarReservacion(reser: any):Observable<any> {
       return this._http.post(`${this.port}${this.guardarReserva}`, reser, httpOption)

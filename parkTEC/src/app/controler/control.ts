@@ -13,6 +13,10 @@ export class Control {
     
     constructor(private gestorAdmin: GestorAdmin, private gestorUsuario: GestorUsuario) { }
 
+    obtenerReservacioness(id: string):Observable<any> {
+        return this.gestorUsuario.obtenerReservacioness(id);
+    }
+
     guardarReservacion(reser: any):Observable<any> {
         return this.gestorUsuario.guardarReservacion(reser);
     }

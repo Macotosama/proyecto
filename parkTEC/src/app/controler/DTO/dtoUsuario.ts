@@ -10,6 +10,10 @@ export class DTOUsuario {
 
     constructor(private control: Control) { }
 
+    obtenerReservacioness(id: string):Observable<any> {
+        return this.control.obtenerReservacioness(id);
+    }
+
     guardarReservacion(reser: any):Observable<any> {
         return this.control.guardarReservacion(reser);
     }

@@ -15,14 +15,15 @@
 <div class="overcontainer">
     <div class="itemReservacion" *ngFor="let reservacion of resercaiones">
         <div class="tituloItem">
-            <h2 class="locacion">{{reservacion.localidad}}</h2>
+            <h2 class="locacion">Reservación {{reservacion.activa? "activa":"terminada"}}</h2>
         </div>
         <div class="fecha">
-            <p>Fecha: {{reservacion.fecha}}</p>
-            <p>Tipo de estacionamiento: {{reservacion.tipo}}</p>
+            <p>Fecha: {{reservacion.dia}}</p>
+            <!-- <p>Tipo de estacionamiento: {{reservacion.tipo}}</p> -->
         </div>
         <div class="placa fecha">
-            <p>Placa: {{reservacion.placa}}</p>
+            <p>Empieza: {{reservacion.inicio}}</p>
+            <p>Finaliza: {{reservacion.final}}</p>
         </div>
         <div class="boton">
             <button mat-flat-button class="eliminar-recervacion">Cancelar</button>

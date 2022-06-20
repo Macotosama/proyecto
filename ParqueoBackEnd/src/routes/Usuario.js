@@ -19,10 +19,28 @@ function parceDay(hora, day) {
     return date.getTime();
 }
 
+//Obtener todos reservaciones
+router.get('/BuscarReservaciones/:id', async (req, res) => {
+    try {
+        const adminS = db.collection("Reserva").where("idfuncionario", "==", req.params.id);
+        
+        const querySnapShot = await adminS.get();
+        const docs = querySnapShot.docs;
+        const response = docs.map((doc)=>({
+            id: doc.id,
+            ...doc.data(),
+        }));
+        console.log(response)
+        return res.status(200).json(response);
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send(error)
+    }
+})
+
 //guardar reservaciones
 router.post('/guardarReservaciones', async (req, res) => {
     try {
-        console.log(req.body)
         const {activa, final, id_estacionamiento, idfuncionario, inicio, fecha} = req.body;
         db.collection("Reserva").add({
             activa: activa,
