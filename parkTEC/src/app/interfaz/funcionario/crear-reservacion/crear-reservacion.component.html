@@ -56,13 +56,13 @@
       <form class="input inicio">
         <mat-form-field class="input-inicio-field" appearance="outline">
           <mat-label>Inicio</mat-label>
-          <input type="time" matInput placeholder="00:00" [(ngModel)]="inicio">
+          <input type="time" matInput placeholder="00:00" [(ngModel)]="inicio" name="b">
         </mat-form-field>
       </form>
       <form class="input final">
         <mat-form-field class="input-inicio-field" appearance="outline">
           <mat-label>Final</mat-label>
-          <input type="time" matInput placeholder="00:00" [(ngModel)]="final">
+          <input type="time" matInput placeholder="00:00" [(ngModel)]="final" name="a">
         </mat-form-field>
       </form>
       <button mat-flat-button class="aceptar-recervacion" (click)="guardar()">Reservar</button>

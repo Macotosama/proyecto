@@ -45,6 +45,7 @@ export class CrearReservacionComponent implements OnInit {
       inicio: this.inicio,
       fecha: this.fechaActual,
     }
+    console.log(temp)
     this.dtoU.guardarReservacion(temp).subscribe(res => {
       this._snackBar.open('Reservación creada', 'Aceptar');
     })

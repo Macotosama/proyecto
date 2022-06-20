@@ -24,13 +24,12 @@ router.post('/guardarReservaciones', async (req, res) => {
     try {
         console.log(req.body)
         const {activa, final, id_estacionamiento, idfuncionario, inicio, fecha} = req.body;
-        db.collection("Funcionarios").add({
+        db.collection("Reserva").add({
             activa: activa,
-            final: parceDay(final, fecha),
+            final: admin.firestore.Timestamp.fromMillis( parceDay(final, fecha) ),
             id_estacionamiento: id_estacionamiento,
             idfuncionario: idfuncionario,
-            inicio: parceDay(inicio, fecha),
-            fecha: this.fechaActual,
+            inicio: admin.firestore.Timestamp.fromMillis( parceDay(inicio, fecha) ),
         });
 
         return res.status(200).json({status: true});
