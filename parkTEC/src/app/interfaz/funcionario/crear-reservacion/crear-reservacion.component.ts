@@ -4,6 +4,7 @@ import { DTOUsuario } from 'src/app/controler/DTO/dtoUsuario';
 import { Estacionamiento } from 'src/app/modelo/Estacionamiento';
 import { Vehiculo } from 'src/app/modelo/Vehiculo';
 import { CookieService } from 'ngx-cookie-service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-crear-reservacion',
@@ -18,18 +19,35 @@ export class CrearReservacionComponent implements OnInit {
   placas = new Array<Vehiculo>();
   placa = '';
   arrendar = false;
-  fechaActual = new Date();
+  fechaActual = '';
+  inicio = '';
+  final = '';
 
   discapacidad = true;
   jefe = true;
+  id = '';
 
-  constructor(private dtoU: DTOUsuario, private cookieService: CookieService) {
+  constructor(private dtoU: DTOUsuario, private cookieService: CookieService, private _snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
     this.infoFuncion();
     this.parqueosNombre();
     this.getAutomoviles();
+  }
+
+  guardar() {
+    var temp = {
+      activa: true,
+      final: this.final,
+      id_estacionamiento: this.aparcamiento,
+      idfuncionario: this.id,
+      inicio: this.inicio,
+      fecha: this.fechaActual,
+    }
+    this.dtoU.guardarReservacion(temp).subscribe(res => {
+      this._snackBar.open('Reservación creada', 'Aceptar');
+    })
   }
 
   getAutomoviles() {
@@ -65,6 +83,7 @@ export class CrearReservacionComponent implements OnInit {
       console.log(res)
       this.jefe = res[0].jefe;
       this.discapacidad = res[0].discapacidad;
+      this.id = res[0].id;
       console.log(this.jefe, this.discapacidad)
     })
   }

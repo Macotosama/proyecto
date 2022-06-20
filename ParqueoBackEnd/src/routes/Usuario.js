@@ -11,16 +11,26 @@ function parceTime(hora) {
     return date.getTime();
 }
 
+function parceDay(hora, day) {
+    hora = hora.split(':');
+    date = new Date(day);
+    date.setHours(hora[0]);
+    date.setMinutes(hora[1]);
+    return date.getTime();
+}
+
 //guardar reservaciones
 router.post('/guardarReservaciones', async (req, res) => {
     try {
-        const {activa, id, id_estacionamiento, idfuncionario, inicio} = req.body;
-        db.collection("Funcionarios").update({
-            activa,
-            id,
-            id_estacionamiento,
-            idfuncionario,
-            inicio
+        console.log(req.body)
+        const {activa, final, id_estacionamiento, idfuncionario, inicio, fecha} = req.body;
+        db.collection("Funcionarios").add({
+            activa: activa,
+            final: parceDay(final, fecha),
+            id_estacionamiento: id_estacionamiento,
+            idfuncionario: idfuncionario,
+            inicio: parceDay(inicio, fecha),
+            fecha: this.fechaActual,
         });
 
         return res.status(200).json({status: true});

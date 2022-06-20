@@ -29,8 +29,13 @@ const httpOption = {
     buscarEstacionamientosJefe = 'user/buscar-estacionamientos-jefes/';
     eidtarHorarios = 'user/editar-horarios';
     infoFuncio = 'user/bucarInfoFuncionario/';
+    guardarReserva = 'user/guardarReservaciones';
 
     constructor(private _http: HttpClient) {}
+
+    guardarReservacion(reser: any):Observable<any> {
+      return this._http.post(`${this.port}${this.guardarReserva}`, reser, httpOption)
+    }
 
     infoFuncion(id: string):Observable<any> {
       return this._http.get(`${this.port}${this.infoFuncio}${id}`, httpOption)

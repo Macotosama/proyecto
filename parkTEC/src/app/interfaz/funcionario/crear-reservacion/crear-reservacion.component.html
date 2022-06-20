@@ -27,7 +27,7 @@
         <div class="aparcamientos">
           <mat-radio-group class="gurpoRadius"
             [(ngModel)]="aparcamiento">
-            <mat-radio-button class="radioButton" *ngFor="let aparca of aparcamientos" class="item" [value]="aparca">
+            <mat-radio-button class="radioButton" *ngFor="let aparca of aparcamientos" class="item" [value]="aparca.id">
               {{aparca.tipo}}
             </mat-radio-button>
           </mat-radio-group>
@@ -56,15 +56,15 @@
       <form class="input inicio">
         <mat-form-field class="input-inicio-field" appearance="outline">
           <mat-label>Inicio</mat-label>
-          <input type="time" matInput placeholder="00:00">
+          <input type="time" matInput placeholder="00:00" [(ngModel)]="inicio">
         </mat-form-field>
       </form>
       <form class="input final">
         <mat-form-field class="input-inicio-field" appearance="outline">
           <mat-label>Final</mat-label>
-          <input type="time" matInput placeholder="00:00">
+          <input type="time" matInput placeholder="00:00" [(ngModel)]="final">
         </mat-form-field>
       </form>
-      <button mat-flat-button class="aceptar-recervacion">Reservar</button>
+      <button mat-flat-button class="aceptar-recervacion" (click)="guardar()">Reservar</button>
     </div>
 </div>
