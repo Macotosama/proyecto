@@ -46,15 +46,15 @@ export class CrearReservacionComponent implements OnInit {
 
   estacionaBuscar() {
     if (this.jefe) {
-      this.dtoU.estacionaBuscarJefes(this.cookieService.get("funcionario")).subscribe(res => {
+      this.dtoU.estacionaBuscarJefes(this.ubicacion).subscribe(res => {
         this.aparcamientos = res;
       })
     } else if (this.discapacidad) {
-      this.dtoU.estacionaBuscarDiscapacitado(this.cookieService.get("funcionario")).subscribe(res => {
+      this.dtoU.estacionaBuscarDiscapacitado(this.ubicacion).subscribe(res => {
         this.aparcamientos = res;
       })
     } else {
-      this.dtoU.estacionaBuscarNormal(this.cookieService.get("funcionario")).subscribe(res => {
+      this.dtoU.estacionaBuscarNormal(this.ubicacion).subscribe(res => {
         this.aparcamientos = res;
       })
     }
@@ -65,6 +65,7 @@ export class CrearReservacionComponent implements OnInit {
       console.log(res)
       this.jefe = res[0].jefe;
       this.discapacidad = res[0].discapacidad;
+      console.log(this.jefe, this.discapacidad)
     })
   }
 

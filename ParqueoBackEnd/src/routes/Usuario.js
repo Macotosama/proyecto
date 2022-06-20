@@ -11,6 +11,25 @@ function parceTime(hora) {
     return date.getTime();
 }
 
+//guardar reservaciones
+router.post('/guardarReservaciones', async (req, res) => {
+    try {
+        const {activa, id, id_estacionamiento, idfuncionario, inicio} = req.body;
+        db.collection("Funcionarios").update({
+            activa,
+            id,
+            id_estacionamiento,
+            idfuncionario,
+            inicio
+        });
+
+        return res.status(200).json({status: true});
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send(error)
+    }
+})
+
 //Obtener datos funcionario
 router.get('/bucarInfoFuncionario/:id', async (req, res) => {
     try {
@@ -33,6 +52,7 @@ router.get('/bucarInfoFuncionario/:id', async (req, res) => {
 //Obtener todos los estacionamientos jefes de un parqueo
 router.get('/buscar-estacionamientos-jefes/:id', async (req, res) => {
     try {
+        console.log(req.params.id)
         const adminS = db.collection("Estacionamiento");
         const query = adminS.where("idparqueo", "==", ""+req.params.id).where("tipo", "==", "jefatura");
         
@@ -74,7 +94,7 @@ router.get('/buscar-estacionamientos-discapacitado/:id', async (req, res) => {
 router.get('/buscar-estacionamientos-normal/:id', async (req, res) => {
     try {
         const adminS = db.collection("Estacionamiento");
-        const query = adminS.where("idparqueo", "==", ""+req.params.id).where("tipo", "==", "jefatura");
+        const query = adminS.where("idparqueo", "==", ""+req.params.id);
         
         const querySnapShot = await query.get();
         const docs = querySnapShot.docs;

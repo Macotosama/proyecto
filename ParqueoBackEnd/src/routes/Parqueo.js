@@ -67,11 +67,11 @@ router.get('/parqueos-nombre', async(req, res) => {
     try {
         const query = await db.collection('Parqueo').get();
         const docs = query.docs;
-        console.log(docs)
         const response = docs.map((doc)=>({
             id: doc.id,
             nombre: doc.data().nombre,
         }));
+        console.log(response);
         return res.status(200).json(response);
     } catch (error) {
         console.log(error);

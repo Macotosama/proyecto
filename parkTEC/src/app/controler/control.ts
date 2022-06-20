@@ -86,7 +86,7 @@ export class Control {
     }
 
     estacionaBuscarJefes(id: string):Observable<any> {
-        return this.gestorUsuario.estacionaBuscarDiscapacitado(id);
+        return this.gestorUsuario.estacionaBuscarJefes(id);
     }
 
     obtnerEstacionemientos(id: string):Observable<any> {

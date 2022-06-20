@@ -51,7 +51,7 @@ export class DTOUsuario {
     }
 
     estacionaBuscarJefes(id: string):Observable<any> {
-        return this.control.estacionaBuscarDiscapacitado(id);
+        return this.control.estacionaBuscarJefes(id);
     }
 
     editarUsuario(usuario: any):Observable<any> {
